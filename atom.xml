@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Johann du Toit]]></title><description><![CDATA[description]]></description><link>http://www.johanndutoit.net</link><image><url>http://www.johanndutoit.net/img/logo.png</url><title>Johann du Toit</title><link>http://www.johanndutoit.net</link></image><generator>NodeJS RSS Module</generator><lastBuildDate>Sat, 13 Apr 2013 18:54:57 GMT</lastBuildDate><atom:link href="http://www.johanndutoit.net/atom.xml" rel="self" type="application/rss+xml"/><item><title><![CDATA[The Daily Reporting Programmer]]></title><description><![CDATA[<h3>Quick Intro</h3>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Johann du Toit]]></title><description><![CDATA[description]]></description><link>http://www.johanndutoit.net</link><image><url>http://www.johanndutoit.net/img/logo.png</url><title>Johann du Toit</title><link>http://www.johanndutoit.net</link></image><generator>NodeJS RSS Module</generator><lastBuildDate>Sat, 13 Apr 2013 21:10:23 GMT</lastBuildDate><atom:link href="http://www.johanndutoit.net/atom.xml" rel="self" type="application/rss+xml"/><item><title><![CDATA[MongoDB Import Error UTF8 Unexpected Error]]></title><description><![CDATA[<p>Was trying to import a CSV file into Mongo but keep getting the error.</p>
+
+<pre class="prettyprint">exception:Invalid UTF8 character detected</pre>
+
+<p>After a heart racing 30 minutes I found the solution.</p>
+
+<p>First run:</p>
+
+<pre class="prettyprint">iconv -f ISO-8859-1 -t utf-8 a.txt %3E a8.txt</pre>
+
+<p>This command simply convert the file to UTF-8. You can then run the normal Mongo Import:</p>
+
+<p><pre class="prettyprint">./bin/mongoimport -d {db_name} -c {collection} --type csv --file a8.txt --headerline</p>
+
+<p>Just remember to change the filenames to your own !</p>]]></description><link>http://www.johanndutoit.net/2013/04/13/mongodb-import-error-utf8-unexpected-error.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2013/04/13/mongodb-import-error-utf8-unexpected-error.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Fri, 12 Apr 2013 22:00:00 GMT</pubDate></item><item><title><![CDATA[Hosting my Blog on Github]]></title><description><![CDATA[<h1>Hosting my Blog on Github</h1>
+
+<p>As part of Spring cleaning I've decided to move my little blog over to Github Pages.</p>
+
+<p>Much nicer setup now and I can even see my static file history in the repo.</p>
+
+<h2>How to setup Custom Domains and a {yourusername}.github.io domain</h2>
+
+<p>It's actually very easy.</p>
+
+<p>You create a repo under your organization / user name that matches your username and the github.com url.</p>
+
+<p>For instance for <a href="http://github.com/johanndutoit">github.com/johanndutoit</a> I created <a href="github.com/johanndutoit/johanndutoit.github.com">github.com/johanndutoit/johanndutoit.github.com</a>. </p>
+
+<p>When you've done that. The next step is to commit and push a index.html file for your pages. I've only tested index.html, not sure about index.htm. Try it and let me know !</p>
+
+<p>When you've create your HTML you then add another file named <pre>CNAME</pre>, like that extacly. In this file you add <pre>yourdomain.com</pre>. This is how Github finds your domain when you hit the server with it.</p>
+
+<p>Next, head over to your DNS management interface and change your A (yourdomain.com) to <pre>204.232.175.78</pre> (Shown on <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Github Pages Docs</a> as 13 April 2013). Also remember to add point the www CNAME to your A record.</p>
+
+<p>Then give it a day or two and you'll be seeing your github pages when you visit yourdomain.com. Very nice another service I don't have to worry about !</p>]]></description><link>http://www.johanndutoit.net/2013/04/13/hosting-my-blog-on-github.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2013/04/13/hosting-my-blog-on-github.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Fri, 12 Apr 2013 22:00:00 GMT</pubDate></item><item><title><![CDATA[The Daily Reporting Programmer]]></title><description><![CDATA[<h3>Quick Intro</h3>
 
 <p>I work for a small consulting company, <a href="http://www.amakozi.com">Amakozi Technologies</a>, which are doing some really amazing things! Check them out.</p>
 

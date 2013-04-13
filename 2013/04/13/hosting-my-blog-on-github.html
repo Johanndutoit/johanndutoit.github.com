@@ -1,0 +1,41 @@
+<!DOCTYPE html><!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]--><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>Hosting my Blog on Github | Johann du Toit</title><meta name="description" content="&lt;h1&gt;Hosting my Blog on Github&lt;/h1&gt;
+
+&lt;p&gt;As part of Spring cleaning I've decided to move my little blog over to Github Pages.&lt;/p&gt;
+
+&lt;p&gt;Much nicer setup now and I can even see my static file history in the repo.&lt;/p&gt;
+
+&lt;h2&gt;How to setup Custom Domains and a {you..."><meta itemprop="image" content="http://www.johann.co.za/img/johann.jpg"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><link rel="alternate" type="application/rss+xml" title="Atom Feed" href="http://feeds.feedburner.com/JohannduToit"><link rel="canonical" href="http://johanndutoit.net/"><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" media="all"><link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"><link href="/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" media="all"><link href="/css/style.css" rel="stylesheet" type="text/css" media="all"></head><body><div id="headerblock" class="container-fluid"><div class="container"><div class="row"><div class="span8 offset2"><div id="title-bar"><a id="header_about_link" style="float:right;margin-top:2px;" href="/">About</a><a id="blog-name" href="/"><h3>Johann du Toit</h3></a><span id="slogan-block" style="margin-left:5px;margin-top:5px;"><p>| My crazy adventures with Computers.</p></span></div><div style="margin-bottom:10px;" class="clearfix"></div></div></div></div></div><div id="mainpage"><div id="main-page-container" class="container"><div class="row"><div class="span8 offset2"><div style="margin:20px;"><h1>Hosting my Blog on Github</h1>
+
+<p>As part of Spring cleaning I've decided to move my little blog over to Github Pages.</p>
+
+<p>Much nicer setup now and I can even see my static file history in the repo.</p>
+
+<h2>How to setup Custom Domains and a {yourusername}.github.io domain</h2>
+
+<p>It's actually very easy.</p>
+
+<p>You create a repo under your organization / user name that matches your username and the github.com url.</p>
+
+<p>For instance for <a href="http://github.com/johanndutoit">github.com/johanndutoit</a> I created <a href="github.com/johanndutoit/johanndutoit.github.com">github.com/johanndutoit/johanndutoit.github.com</a>. </p>
+
+<p>When you've done that. The next step is to commit and push a index.html file for your pages. I've only tested index.html, not sure about index.htm. Try it and let me know !</p>
+
+<p>When you've create your HTML you then add another file named <pre>CNAME</pre>, like that extacly. In this file you add <pre>yourdomain.com</pre>. This is how Github finds your domain when you hit the server with it.</p>
+
+<p>Next, head over to your DNS management interface and change your A (yourdomain.com) to <pre>204.232.175.78</pre> (Shown on <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Github Pages Docs</a> as 13 April 2013). Also remember to add point the www CNAME to your A record.</p>
+
+<p>Then give it a day or two and you'll be seeing your github pages when you visit yourdomain.com. Very nice another service I don't have to worry about !</p><hr><p style="font-size:14px;"> Posted on 2013/04/13 by <a href="/">Johann du Toit</a></p></div></div></div></div><div id="meta-block" class="linksbelow"><div class="container"><div class="row"><div style="padding:15px;padding-top:10px;" class="span8 offset2"><h3 style="margin:10px;">Recent Posts</h3><ul style="list-style-type: circle;"><li><a href="/2013/04/13/mongodb-import-error-utf8-unexpected-error.html">MongoDB Import Error UTF8 Unexpected Error</a></li><li><a href="/2013/04/13/hosting-my-blog-on-github.html">Hosting my Blog on Github</a></li><li><a href="/2013/01/08/the-daily-reporting-programmer.html">The Daily Reporting Programmer</a></li><li><a href="/2013/01/07/starting-my-bachelor-of-science-in-informatics.html">Starting my Bachelor of Science in Informatics</a></li><li><a href="/2013/01/07/searching-in-a-radius-using-postgres.html">Searching in a Radius using Postgres</a></li><li><a href="/2012/11/08/ie8-finally-losing-relevance-to-consumers.html">IE8 Finally Losing Relevance to consumers</a></li><li><a href="/2012/10/27/introducing-identichip.html">Introducing IdentiChip</a></li><li><a href="/2012/07/22/slow-down-cowboy.html">Slow Down Cowboy</a></li></ul><p style="margin-left:10px;margin-top:15px;"><a href="/archive.html"><View>all Posts</View></a></p></div></div></div></div></div><footer><div style="margin-top:0;" class="container"><div class="span8 offset2"><p>Copyright Johann du Toit 2012 - 2012 <a id="footer_subscribe_link" href="/atom.xml" style="margin-left:10px;margin-right:10px;">Subscribe to RSS</a><a id="footer_about_link" href="/">About</a></p></div></div></footer><script src="/js/prettify.min.js" type="text/javascript"></script><script type="text/javascript">window.prettyPrint && prettyPrint()
+</script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-13256670-7']);
+_gaq.push(['_setDomainName', 'johanndutoit.net']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script></body></html>
