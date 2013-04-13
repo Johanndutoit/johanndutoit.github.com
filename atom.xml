@@ -1,0 +1,1154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Johann du Toit]]></title><description><![CDATA[description]]></description><link>http://www.johanndutoit.net</link><image><url>http://www.johanndutoit.net/img/logo.png</url><title>Johann du Toit</title><link>http://www.johanndutoit.net</link></image><generator>NodeJS RSS Module</generator><lastBuildDate>Sat, 13 Apr 2013 18:54:57 GMT</lastBuildDate><atom:link href="http://www.johanndutoit.net/atom.xml" rel="self" type="application/rss+xml"/><item><title><![CDATA[The Daily Reporting Programmer]]></title><description><![CDATA[<h3>Quick Intro</h3>
+
+<p>I work for a small consulting company, <a href="http://www.amakozi.com">Amakozi Technologies</a>, which are doing some really amazing things! Check them out.</p>
+
+<h3>The Daily E-Mail</h3>
+
+<p>I've found when dealing with others employees it's best to send out my <strong>Daily Report</strong>. So every day at the end of business I send a big mail out to everyone I've interacted with telling them:</p>
+
+<ul>
+<li>What happened during the day, this sometimes includes a actual list of task items that were completed.</li>
+<li>All the parts I encountered problems with, such as bugs etc.</li>
+<li>Any comments I have on any part of the project or the tasks.</li>
+<li>Any feedback / suggestions I have that could be changed.</li>
+<li>What I'm planning for tomorrow. This does not include everything in a long list. More of a brief overview so everyone can get to grips with what I'll be spending my time on.</li>
+<li>Brief overview of what still needs to happen.</li>
+</ul>
+
+<h3>What does this accomplishes ?</h3>
+
+<p>Thanks to this E-Mail. At the end of every day, everyone I've worked with know exactly:</p>
+
+<ul>
+<li>What I did during the course of the day</li>
+<li>What Problems I encountered and what I had to do to get around them</li>
+<li>My internal though pattern about the project as I've listed all my feedback and suggestions.</li>
+<li>What I'll be doing tomorrow. </li>
+<li>And what my general plan for finishing the task(s) is.</li>
+</ul>
+
+<h3>This is great but daily ? And what about customers ?</h3>
+
+<p>Yes, <strong>DAILY</strong>. </p>
+
+<pre><code>I realize this might annoy some people, but they can just ignore it if they really don't want to see it. 
+</code></pre>
+
+<p>For the most part everyone in the team appreciates being kept in the loop. And who doesn't want to be kept in the loop ?</p>
+
+<p>That brings us to customers too. I've found that customers appreciate the report too. You might want to only send this report when you are actually working on the product though. They appreciate the insight into your process and feel that you are actively trying to keep the heart of the project going with your feedback and suggestions. Which is what customer service is all about, right ?</p>
+
+<h3>What's the end result ?</h3>
+
+<p>After almost 2 years of doing this I've found that the Reporting tends to reduce friction and everyone stays on the same page.</p>
+
+<pre><code>I often get into the office and just start going. As everyone knows what I'll be doing and they replied and gave me directions / feedback for the tasks.
+</code></pre>
+
+<p>Of course nothing beats a face-to-face meeting but this method really reduces the need for meetings to a minimum as its all clear from the get go what's happening every day.</p>
+
+<p>The final plus is the ability to look back and use your E-Mail as a saving grace when any issues pop-up or as a work log for a certain day.</p>
+
+<h3>Let's start reporting on our programming !</h3>]]></description><link>http://www.johanndutoit.net/2013/01/08/the-daily-reporting-programmer.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2013/01/08/the-daily-reporting-programmer.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Mon, 07 Jan 2013 22:00:00 GMT</pubDate></item><item><title><![CDATA[Starting my Bachelor of Science in Informatics]]></title><description><![CDATA[<p>I finally took the plunge and started with my degree this year.</p>
+
+<p>I'm taking the <a href="http://www.unisa.ac.za/qualifications/index.asp?link=http://www.unisa.ac.za/qualifications/Navigation/CSET_ALL.html">Bachelor of Science in Informatics</a> course for a few reasons:</p>
+
+<ul>
+<li>Had a look at the Topics they cover and this will give me a real deep understanding of some of the fundamentals I work with every day.</li>
+<li>It had none of the advance math from CompSci. Which few years after leaving school all looks like Greek to me !</li>
+</ul>
+
+<p>I'll be providing updates on the experience with Unisa through the course of the degree and give everyone some insight on how Unisa works.</p>
+
+<h2>Application</h2>
+
+<p>The very first thing we had to do was to Apply. When you apply it's just a simple process of checking if you actually qualify for the course. You'll hear back in a few weeks.</p>
+
+<p>I submitted my ID Document and National Certificate, certified by the police.</p>
+
+<p>Once Unisa gets back to you, you'll either get the green light or they will guide you to a route that will allow you to achieve what you first applied for.</p>
+
+<h2>Registering</h2>
+
+<p>After the application period is closed. The registration period starts. This is where you will be able to register for the modules you which to take in either the first or second semester and you will need to start paying for the modules.</p>
+
+<p>This is all quite easy thanks to their self-service site.</p>
+
+<h2>Study Material</h2>
+
+<p>After a few weeks you'll get a notice from Unisa and they will send all the required study material for the semester.</p>
+
+<p>This includes the books (only for modules where they provide the books) and tutorials. The tutorials act much like your teacher and give you information on all the assignments, prescribed books and due dates.</p>
+
+<h2>And that's it. Now it's just to study and get it ready for the assignments and exam ! Wish me luck !</h2>
+
+<p>Also plan on giving a review on each book once I'm gone through them.</p>]]></description><link>http://www.johanndutoit.net/2013/01/07/starting-my-bachelor-of-science-in-informatics.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2013/01/07/starting-my-bachelor-of-science-in-informatics.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Sun, 06 Jan 2013 22:00:00 GMT</pubDate></item><item><title><![CDATA[Searching in a Radius using Postgres]]></title><description><![CDATA[<p>Creating a GEO application has never been easier. You can have a fully working "What's close to me" in a matter of minutes using some great open-source tools.</p>
+
+<p>Postgres has lots of features. With the biggest in my opinion being extensions. Which take this amazing Database platform to the next level.</p>
+
+<h2>Options</h2>
+
+<p>When writing a app that wishes to use Postgres for GEO functions you have 2 choices (to the best of my knowledge):</p>
+
+<ul>
+<li>PostGis which provides advance GEO functions to Postgres. I've played with it and it seems way to bulky for my needs</li>
+<li>Cube and EarthDistance, these 2 extensions provide easy to use and very fast methods to accomplish some of the more minor geo related activities.</li>
+</ul>
+
+<h2>Why do the calculations in a database server</h2>
+
+<p>It should be pretty obvious. The server already has all the data and with extensions being written in c / c++ it's very fast. </p>
+
+<p>An Index can also be added for a even bigger boost.</p>
+
+<h2>Using my Choice - Cube and EarthDistance</h2>
+
+<p>To start using these 2 extensions you will need to create a database (which I take it you know how to do) and "create" / enable them for use by the schema you'll be using.</p>
+
+<p>To do this run</p>
+
+<pre class="prettyprint">CREATE EXTENSION cube;</pre>
+
+<p>and</p>
+
+<pre class="prettyprint">CREATE EXTENSION earthdistance;</pre>
+
+<p>This will create +-44 functions that will be usable by your queries.</p>
+
+<p><strong style="color:red;">For our examples I created a table named events with a id (serial), name (varchar 255), lat (double) and lng (double) columns. Be sure to keep that in mind.</strong></p>
+
+<h3>Calculating the distance between coordinates</h3>
+
+<p>To calculate the distance between 2 coordinates we use <code>earth<em>distance(ll</em>to<em>earth($lat</em>lng<em>cube), ll</em>to<em>earth($lat</em>lng_cube))</code>. This functions allows us to pass 2 sets of coordinates and it will return a numerical value representing metres.</p>
+
+<p>This can be used for many things such as ordering according to events that are nearest to a certain location. An example of which would be:</p>
+
+<pre class="prettyprint">SELECT events.id, events.name, earth_distance(ll_to_earth( {current_user_lat}, {current_user_lng} ), ll_to_earth(events.lat, events.lng)) as distance_from_current_location FROM events ORDER BY distance_from_current_location ASC;</pre>
+
+<p>This will give us a nice list of events sorted by their distance to our current location. With the closest being first.</p>
+
+<h3>Finding Records in a Radius</h3>
+
+<p>Another great function provided by these extensions is the <code>earth<em>box(ll</em>to<em>earth($lat</em>lng<em>cube), $radius</em>in<em>metres)</code> this function allows us to perform a simple compare to find all records in a certain radius. This is done by the function by returning the great circle distance between the points, a more thorough explanation is located at <a href="http://en.wikipedia.org/wiki/Great_circle">http://en.wikipedia.org/wiki/Great</em>circle</a>. </p>
+
+<p>This could be used to show all events in our current city.</p>
+
+<p>An example of such a query:</p>
+
+<pre class="prettyprint">SELECT events.id, events.name FROM events WHERE earth_box( {current_user_lat}, {current_user_lng}, {radius_in_metres}) @> ll_to_earth(events.lat, events.lng);</pre>
+
+<p>This Query would then only return the records in that radius. Pretty easy !</p>
+
+<h2>Speeding up these queries</h2>
+
+<p>You might have noticed that these queries could get pretty expensive. In my experience it's best to ensure that the table has a index for these fields. This is created using:</p>
+
+<pre class="prettyprint">CREATE INDEX ${name_of_index} on events USING gist(ll_to_earth(lat, lng));</pre>
+
+<p>This will pre-calculate the degrees for each of the coordinates that will make the above queries run much faster as it's not doing those calculations on each row for each run.</p>
+
+<p>This of course assumes that you have a table named events which has a lat and lng column.</p>
+
+<h3>Datatypes</h3>
+
+<p>For my quick app I simply used double datatypes for my <strong>lat</strong> and <strong>lng</strong> columns. This allowed me to use it with one of the NodeJS ORM's that made development much quicker, instead of having to find some custom solution to handle the other GIST datatypes.</p>
+
+<h2>That's it !</h2>
+
+<p>Amazing right ?!? We've just built a quick database that is able to handle some GEO functions to build amazing mapping and GEO social apps !</p>]]></description><link>http://www.johanndutoit.net/2013/01/07/searching-in-a-radius-using-postgres.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2013/01/07/searching-in-a-radius-using-postgres.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Sun, 06 Jan 2013 22:00:00 GMT</pubDate></item><item><title><![CDATA[IE8 Finally Losing Relevance to consumers]]></title><description><![CDATA[<p>IE8 and under has been a pain in my Back for most of my development life this past year. IE9 is finally at a stage where I don't have to worry about it but IE8 and under never play along.</p>
+
+<pre><code>IE8 and its cousins IE7 and IE6 are like the mean kids at the playground. While everyone is happily playing they have to go throw juice all over the other kid’s heads.
+</code></pre>
+
+<p>I've recently been working with a client that originally requested to have IE8 support. Which is fine as that is pretty much the standard. </p>
+
+<p>But we had some problems. IE8 was not handling a bunch of I Frame very well and caused memory issues and the was not able to resize its height according to the window.</p>
+
+<p>I struggled with this for days. Until the PM (Project Manager) gave the client an option. </p>
+
+<p><strong>To either keep me on this strange issue which was only affecting IE8.</strong></p>
+
+<h4>OR</h4>
+
+<p><strong>Simply show a message that the site be fully functional when a user with IE8 shows up. </strong></p>
+
+<p>After a day we got a response back and the client was aboard with showing a warning message for IE8. </p>
+
+<p>This shows me 2 things:</p>
+
+<ul>
+<li>IE8 is starting to be considered legacy.</li>
+<li>Clients aren't willing to pay for all the issues that comes with supporting IE8</li>
+</ul>
+
+<p>This could be me reading too much into this, but that's what I think.</p>
+
+<h3>And IE9?</h3>
+
+<p>I'm actually quite happy with IE9. It still has its quirks, get it? But it's pretty solid. And if it works in Chrome / Firefox it will more than likely work in IE9. Just don't get me started on some HTML5 features, but only the adventurous are using that anyway.</p>
+
+<h2>So the day is finally starting to come upon us. Unite my Brothers and Sister so much more less frustration!</h2>]]></description><link>http://www.johanndutoit.net/2012/11/08/ie8-finally-losing-relevance-to-consumers.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2012/11/08/ie8-finally-losing-relevance-to-consumers.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Wed, 07 Nov 2012 22:00:00 GMT</pubDate></item><item><title><![CDATA[Introducing IdentiChip]]></title><description><![CDATA[<p>I've been a bit busy the past few weeks coding up my entry for the <a href="http://www.google.com/events/gadc2012/">Google Apps Developer Challenge</a>. </p>
+
+<p>View a Presentation I've made about the service:</p>
+
+<p><a href="http://www.johanndutoit.net/presentations/2012/10/gdg-capetown-27-oct-2012/index.html">View the Presentation</a></p>
+
+<p>I've also made a small video about it:</p>
+
+<p><center style="margin-top:15px;"></p>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/vB8CRiNd6QM" frameborder="0" allowfullscreen></iframe>
+
+<p></center></p>]]></description><link>http://www.johanndutoit.net/2012/10/27/introducing-identichip.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2012/10/27/introducing-identichip.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Fri, 26 Oct 2012 22:00:00 GMT</pubDate></item><item><title><![CDATA[Slow Down Cowboy]]></title><description><![CDATA[<p>Was browsing Stackoverflow recently, as I and most programmers I know do.</p>
+
+<p>And saw a question come up about how Stackoverflow site knows when a vote is processed, a comment added or a new answer posted. As the OP checked firebug but the site does not post any AJAX requests.</p>
+
+<p>And I saw the usual barrage of Programmers going:</p>
+
+<pre><code>WHO IS THIS IDIOT, YOU DON'T KNOW AJAX!?!?! DOWN VOTE TO HELL.
+</code></pre>
+
+<p>One Comment was:</p>
+
+<pre><code>Of course it's AJAX!
+</code></pre>
+
+<p>And saw the down votes coming in. But then while this was happening I decided to check what Stackoverflow was really using. And turns out the OP won't see any AJAX calls as SO is using Web Sockets. So they were right to ask but the cowboys of the SO arena, don't care.</p>
+
+<p>This could have been a great chance to teach some beginner or even someone that just hasn't heard of Web Sockets about the new Standard. But it's gone now!</p>
+
+<p>Not all newbie just ask without experimenting first, as it seems most SO users think. See that the OP tried firebug ? They actually tried looking at the traffic and how SO does what it does!</p>
+
+<h3>The OP ended up removing the Question, seconds later to avoid the hail storm of big ego programmers.</h3>
+
+<p>Rage done, back to Stackoverflow....</p>]]></description><link>http://www.johanndutoit.net/2012/07/22/slow-down-cowboy.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2012/07/22/slow-down-cowboy.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Sat, 21 Jul 2012 22:00:00 GMT</pubDate></item><item><title><![CDATA[OAuth in a Service-Oriented Architecture]]></title><description><![CDATA[<p>While creating the new version of Curriculum Vitae I have decided to devide the entire system up into diffrent parts that each have a job. I was aiming for a service orientated architecture.</p>
+
+<p>Which sounds very good on paper but it's a bit harder when you add in that your users are authenticating with OAuth 2.0 too. So now what? How do I created a service that supports OAuth 2.0 for developers but still allow me to build sites that authenticate using sites like facebook etc.</p>
+
+<p>So in this post I'm going to be guiding you through what I did. It might not be the best way, but it's my way and it worked.</p>
+
+<p>Here's a basic Flow Chart of the entire process of Authenticating a Registering, obviously skipping a few if's but you get the picture.</p>
+
+<p>Before I continue, this is a open-source so feel free to join me at <a href="https://github.com/CurriculumVitae/CV-Data-Service">CV-Data-Service</a></p>
+
+<p><center>
+<img src="/img/posts/curriculumvitae/APIServiceOverview.png" alt="Flow Chart of Authentication and Registering" style="width:90%;" />
+</center></p>
+
+<h3>1. Authentication and Autherization</h3>
+
+<p>I went searching around the internet for the solution to this problem.</p>
+
+<p>I found a ton of useful reads as such as <a href="http://stackoverflow.com/questions/4574868/securing-my-rest-api-with-oauth-while-still-allowing-authentication-via-third-pa">REST and OAuth Stackoverflow Question</a>, which all tries to bring across the same message. There is a difference between Authentication and Authorization. Which had me stretching my head a few times?</p>
+
+<p>What's so important about this difference?</p>
+
+<p>Then one day while doing some more searching it hit me. OAuth 2.0 allows you to authorize other applications to certain parts of a user’s profile. And it does not matter that I login using other providers as it's still just OAuth 2.0. </p>
+
+<p>So the process would be: </p>
+
+<ul>
+<li>Request Authorization from the API with your Client application. </li>
+<li>The API checks that everything is in order and redirects us to the OAuth Authorization Screen. </li>
+<li>We check if the user is logged in. If not we redirect them to the 'connect' page. This page shows various options for logging in with providers such as Facebook, Google and Twitter. * We then let the user login, and once they are logged in we send them back to the authorization page. </li>
+<li>The page then lets the user authorize the application and we do all the callbacks to finish the transaction.</li>
+</ul>
+
+<p>Quite simply, except for the time it took me to understand what they all mean. So the important part is that it shouldn’t matter what we are using for authentication, I know OAuth 2.0 was never meant to be used for authentication but we're all just sheep following Google, Twitter and Facebook so there!, as we only want to authorize so authentication has nothing to do with the authorization call. We simply provide it responses and the clients get access or not.</p>
+
+<h3>2. Handling your Internal Apps</h3>
+
+<p>Great so now we have the process figured out. Let’s get coding.... oh wait how are we going to be handling internal apps.</p>
+
+<p>If all of our sites and app are just consumers of the numerous apes how are we going to allow only our website to register new users? And how do we know if a user was actually registered with us?</p>
+
+<p>Well I found a couple of solutions and ended up with a pretty basic one.</p>
+
+<p>The API allows authorization in 2 ways: * either provide an access token which would represent a user. * Or authorize the request as one made from an application.</p>
+
+<p>For authorization a user’s request we followed Facebook were we pass an access token which identifies the user. While for application authentication I quite liked HTTP-Signature by Joyent - https://github.com/joyent/node-http-signature. So for applications we only allow authorization through HTTP-Signature, helping us with some security. </p>
+
+<p>To control which applications are allowed to call functions such as 'register' we added a flag to the application. 'Internal', if an application is marked with this flag the application is one of our internal applications that are allowed to call functions such as register. We still do a lot of checking but allow us to control who calls what. Still thinking of providing something more than a Boolean as to allow only certain apps to do some action but for now we have it working.</p>
+
+<h3>3. Authenticating &amp; Registering Users through the same service</h3>
+
+<p>Now that we have:</p>
+
+<ul>
+<li>An OAuth Authorization Enabled Service</li>
+<li>Applications marked as 'internal' to allow only internal apps to perform actions such as 'register'</li>
+</ul>
+
+<p>Now we have to authenticate and registers users. To do this I built two handlers.</p>
+
+<p>These handlers are 'auth/authenticate' and 'auth/register', only internal applications may access these. The 'auth/authenticate' handles all authentication from an app. The app will have the same keys and secrets as the API and authenticate the user. </p>
+
+<p>The login process is as follows: </p>
+
+<ul>
+<li>User views the Connect page and decides which provider to use to login. </li>
+<li>The user goes through the entire process of authenticating with the provider. </li>
+<li>When the user gets the response with the access token for the user in that provider we call the 'auth/authenticate' method of the API. This method takes the access token and verifies that it's our app and that the token is valid by calling the API of the providers. </li>
+<li>The API then creates / updates the account and checks for a user. If no user is found the API will return a response with the user as false, telling the website to redirect the user over to the profile registration page. If the account is already linked to a user we send a response with the user and the access token for the current application to access the user with.</li>
+</ul>
+
+<p>And that's it we are authenticated. All requests made from this point will be made with the access token returned by the 'authenticate' response if a user was returned already.</p>
+
+<p>To register we do a simple post with the account id and user's details. The service does a few checks for availability and then creates the profile and returns a response with the access token for the application to use.</p>
+
+<h4>Not that hard but no-one gave me clear instructions so I thought I'd share my experience.</h4>]]></description><link>http://www.johanndutoit.net/2012/07/22/oauth-in-a-service-oriented-architecture.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2012/07/22/oauth-in-a-service-oriented-architecture.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Sat, 21 Jul 2012 22:00:00 GMT</pubDate></item><item><title><![CDATA[Shotgun Programming]]></title><description><![CDATA[<p>Was working with the Tridion System, not that I know much about it, and something my <a href="http://www.linkedin.com/in/nicoesterhuyse">colleague</a> mentioned has been resonating in my head.</p>
+
+<p>He called it:</p>
+
+<blockquote>
+  <p>Shotgun Programming</p>
+</blockquote>
+
+<p>Quite simply it is the act of sprinkling various outputs such as File Writes, Console Writes and Logging Action in your Logic to find where an error is occurring.
+Remember I always used to do this in school, while I did not know about debugging. </p>
+
+<p>But it seems it is not just for programmers who dont know about debugging. This Tridion Extension had to fire off an E-Mail after a Workflow was finished. And we couldnt use debugging in Visual Studio as the Debugger was leaving references to the database connection and this started causing problems in Tridion. </p>
+
+<p>So what did we do?</p>
+
+<p>Well we had to write out a file for each stage of the program so we can see variables and error. Not very elegant.</p>
+
+<p>An example would be:</p>
+
+<pre class="prettyprint">
+public static void main(String[] args) {
+    String a = "a";
+    String b = "10";
+    int final_number = Integer.parseInt(a) + Integer.parseInt(b);
+    System.out.println("Final Number: " + final_number);
+}
+</pre>
+
+<p>but oh no! We got a runtime exception! Run for the hills! </p>
+
+<p>Ok, maybe not we know what the problem is. String a is not a number! But lets pretend we dont know so now we need to find out what is going astray. Shotgun programming would have us do something like this:</p>
+
+<pre class="prettyprint">
+public static void main(String[] args) {
+    System.out.println("Before A");
+    String a = "a";
+    System.out.println("Before B");
+    String b = "10";
+    System.out.println("Before Sum");
+    int final_number = Integer.parseInt(a) + Integer.parseInt(b);
+    System.out.println("Before Out");
+    System.out.println("Final Number: " + final_number);
+}
+</pre>
+
+<p>So we can see the error occurs right after "Before Sum". Which narrows the error range quite a bit.</p>
+
+<p>You may say that this is madness. Yes we should probally be locked up for this as the compiler would even tell us which line to check for the exception. But if you cant get the STD-Out of the Program ? I cant see anyone having much choice?</p>
+
+<p>But there you have it <code>Shotgun Programming</code> use it wisely.</p>]]></description><link>http://www.johanndutoit.net/2012/05/22/shotgun-programming.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2012/05/22/shotgun-programming.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Mon, 21 May 2012 22:00:00 GMT</pubDate></item><item><title><![CDATA[New Site and Blog]]></title><description><![CDATA[<p>Was using Blogger for a while and it all works great, <strong>BUT</strong> I don't like having no control and it all just seems too much.</p>
+
+<p>So what does any self-respecting programmer do ? Build his / her own! So I set out to build me a small blog that could be:</p>
+
+<ul>
+<li>Versioned using Git</li>
+<li>Fast and requiring almost no resources</li>
+<li>Easy to update</li>
+<li>SIMPLE</li>
+</ul>
+
+<p>This is how I built the script that generates the blog.</p>
+
+<h3>But first a Q &amp; A</h3>
+
+<h4>How the Blog is setup</h4>
+
+<p>I have a repo up on github that I keep the script and my blog posts - Named surprisingly <a href="https://github.com/Johanndutoit/Blog">Blog</a> ...</p>
+
+<p>This is where I host my articles, script and assets.</p>
+
+<p>Posts are listed under posts and as a I wanted to organize my posts each child of posts/ represents a year.</p>
+
+<p>So a normal listing would be:</p>
+
+<ul>
+<li>posts/2012/</li>
+<li>posts/2011/</li>
+</ul>
+
+<p>Under each year we have months, who saw that coming ? And under each month we have a dates that are also folders So my posts would be organized by year, month and date.</p>
+
+<p>Then under that tree we would have the Blog post in a file "Blog Post.md", where the filename is the title.</p>
+
+<p>An Example of this Directory tree would be:</p>
+
+<ul>
+    <li>
+        2012
+        <ul>
+            <li>
+                01
+                <ul>
+                    <li>
+                        15
+                        <ul>
+                            <li>
+                                Blog Post #1.md
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        29
+                        <ul>
+                            <li>
+                                Blog Post #2.draft.md
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        2011
+        <ul>
+            <li>
+                04
+                <ul>
+                    <li>
+                        20
+                        <ul>
+                            <li>
+                                Blog Post #3.md
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<p>As you can see the blog post is a Markdown file. Much easier to create, update and parse into various formats for me. Adding a draft function right after launch. So I could mark a file as .draft.md as to demonstrate that I was still working on this post and not to publish it.</p>
+
+<p>So now I have my blog posts in markdown files and my assets under assets/. What now? Well when I want to update my blog I do a quick <code>coffee builder.coffee</code> that creates a site/ directory with all my assets, parsed blog posts, Atom Feed, Archive Page and Homepage.</p>
+
+<blockquote>
+  <p>Nothing more. No rocket science here!</p>
+</blockquote>
+
+<p>I then take the generated site and update my online page.</p>
+
+<p>Going to be implementing hooks so everytime I commit a blog post the site is updated. Cool huh ?
+<br /></p>
+
+<h4>Why a Static Site?</h4>
+
+<p>I don't need a bloated platform to write. I simply want something that will allow me write without restrictions such as Admin Backends etc...</p>
+
+<p>Another reason would be that this site is purely for me to express myself. I don't need any sessions, cookies or users. My Site, My Script My Rules.</p>
+
+<p>Thanks to the entire site being only html Nginx really serves this at a heart racing speed!</p>
+
+<h4>I Like this! Where can I get the code ?</h4>
+
+<p>The Entire blog is open source. Check it out at <a href="https://github.com/Johanndutoit/Blog">Blog</a>.</p>
+
+<p>Want your own blog just like this ? Fork the repo, edit it to your liking and put it online!</p>
+
+<h3>So how did I build this?</h3>
+
+<p>Thought I'd write a guide on how I went about this and what I learned along the way. </p>
+
+<blockquote>
+  <p>Follow my <a href="https://github.com/Johanndutoit/Blog/commits/master">Commit Log</a> over on <a href="https://github.com">Github</a>.</p>
+</blockquote>
+
+<h4>First Steps</h4>
+
+<p>So we've decided to do this. Lets create a empty nodejs project for us to use. I creat a package.json file to npm to manage all my dependencies. <b>No I didn't know what I wanted at the start but don't want to seperate this file, to give a complete example</b></p>
+
+<pre class="prettyprint">
+{
+  "name": "JDT-Blog",
+  "version": "0.0.1",
+  "engines": {
+    "node": "0.6.x",
+    "npm":  "1.0.x"
+  },
+  "description": "My Personal Blog Generation Tool. Customize it to your own needs!",
+  "author": {
+    "name": "Johann du Toit"
+  },
+  "dependencies": {
+    "coffee-script": ">= 1.x.x",
+    "jade": ">= 0.25.0",
+    "wrench": ">= 1.3.8",
+    "node-markdown": ">= 0.1.0",
+    "rss" : ">= 0.0.3"
+  }
+}
+</pre>
+
+<p>Change the name and description to your own Project. Or leave it as is, I don't care!</p>
+
+<p>So lets use that npm package declaration and install all the dependencies by executing:</p>
+
+<pre class="prettyprint">
+npm install
+</pre>
+
+<p>Maybe think about globally installing CoffeeScript, to do that execute:</p>
+
+<pre class="prettyprint">
+npm install -g coffeescript
+</pre>
+
+<p>Ok so now that we have a basic layout I created the posts file and the first blog post in <code>posts/2012/05/11/New Site and Blog.md</code>. Then fill this file with some super words of you and save it.</p>
+
+<p>Now to create all the boilerplate:</p>
+
+<ul>
+<li>assets/css</li>
+<li>assets/js</li>
+<li>assets/img</li>
+<li>views/</li>
+</ul>
+
+<p>Now let's start building the script that will actually assemble our site. Let's create a file called <code>builder.coffee</code> and start by inserting the follow to import all our dependencies.</p>
+
+<pre class="prettyprint">
+fs = require 'fs'
+jade = require 'jade'
+util = require 'util'
+md = require("node-markdown").Markdown;
+path = require 'path'
+wrench = require 'wrench'
+RSS = require 'rss'
+</pre>
+
+<p>Ok now that we have our references, let's create a function parse our jade files. This will make use of the Jade Lib, this is how we will build our templates.</p>
+
+<pre class="prettyprint">
+###
+Parses the Jade File used to Create .html pages of our site. Basicly the template
+@author Johann du Toit
+###
+view_parse = (filename, locals, fn) ->
+
+    file = __dirname + '/views/' + filename
+    file_content = fs.readFileSync(file,'utf8')
+    output = jade.compile file_content, {filename: file}
+
+    locals.current_year = 2012 # Need to automate this!
+
+    fn undefined, output(locals)
+</pre>
+
+<p>Now let's parse the Blog Posts. Just a Loop on each level of the tree. We then parse and create objects we can work with them later.</p>
+
+<pre class="prettyprint">
+###
+Parse all the Blog Posts, Their Date and available Years.
+@author Johann du Toit
+###
+read_blog_posts = (fn) ->
+    posts = []
+    years = []
+
+    years = fs.readdirSync __dirname + "/posts/"
+
+    for year in years
+        if 1*year not in years
+            years.push 
+
+        months = fs.readdirSync __dirname + "/posts/" + year
+
+        for month in months
+            days = fs.readdirSync __dirname + "/posts/" + year + "/" + month
+
+            for day in days
+                post_files = fs.readdirSync __dirname + "/posts/" + year + "/" + month + "/" + day + "/"
+
+                for post_name in post_files
+                    if(post_name.indexOf('.draft') == -1)
+                        post = {}
+                        post.title = post_name.substr( 0, post_name.lastIndexOf( "." ) )
+                        post.date = year + "/" + month + "/" + day
+                        post.year = year
+                        post.month = month
+                        post.day = day
+                        post.filename = post.title.toLowerCase().replace(/\ /g, '-') + ".html"
+                        post.path = year + "/" + month + "/" + day + "/" + post.filename
+                        post.url = '/' + post.path
+                        post.content = md fs.readFileSync __dirname + "/posts/" + year + "/" + month + "/" + day + "/" + post_name, 'UTF-8'
+                        posts.push post
+
+    # Sort the Blog Posts
+    posts.reverse (a, b) ->
+        ((1*b.year) + (1*b.month) + (1*b.day)) - ((1*a.year) + (1*a.month) + (1*a.day))
+
+    years.sort (a, b) ->
+        b - a
+
+    fn posts, years
+</pre>
+
+<p>This is where most of the logic would take place. Write each seperate post to file, create the homepage, create the archive page and create a RSS Feed.</p>
+
+<pre class="prettyprint">
+site_dir = 'site'
+
+read_blog_posts (posts, years) ->
+    # Now that we have the posts start creating the files.
+
+    path.exists 'site', (site_dir_exists) ->
+        if site_dir_exists == false
+            fs.mkdirSync 'site', 2
+
+        wrench.copyDirSyncRecursive(__dirname + '/assets', __dirname + '/' + site_dir + "/");
+
+        # Create the Homepage
+        view_parse 'home.jade', {title: 'Johann du Toit', description: "My Blog!", posts: posts.slice(0, 8)}, (err, output) ->
+            fs.writeFile site_dir + '/index.html', output, 'utf8', ->
+                true
+
+        # Create the Atom Feed
+        feed = new RSS({
+            title: 'Johann du Toit',
+            description: 'description',
+            feed_url: 'http://www.johanndutoit.co.za/rss.xml',
+            site_url: 'http://www.johanndutoit.co.za',
+            image_url: 'http://www.johanndutoit.co.za/img/logo.png',
+            author: 'Johann du Toit'
+        })
+
+        feed_posts = posts.slice 0, 20
+        feed_posts.forEach (post) ->
+            feed.item({
+                title:  post.title,
+                description: post.content,
+                url: post.url,
+                date: 'May 27, 2012' 
+            })
+
+        fs.writeFile site_dir + '/atom.xml', feed.xml(), 'utf8', ->
+            true
+
+        # Creat the Archive Page
+        view_parse 'archive.jade', {title: 'Johann du Toit', description: "Testing", posts: posts, 'years' : years}, (err, output) ->
+            fs.writeFile site_dir + '/archive.html', output, 'utf8', ->
+                true
+
+        # Create a Page for all Posts
+        posts.forEach (post) ->
+            path.exists 'site/' + post.year + "/" + post.month + "/" + post.day , (post_dir_exists) ->
+                if post_dir_exists == false
+                    wrench.mkdirSyncRecursive 'site/' + post.year + "/" + post.month + "/" + post.day, 777
+
+                view_parse 'post.jade', {title: post.title + ' | Johann du Toit', description: "Testing", post: post, recent_posts:posts.slice(0, 8)}, (err, output) ->
+                    fs.writeFile __dirname + "/" + site_dir + '/' + post.path, output, 'utf8', (err, a) ->
+                        true
+</pre>]]></description><link>http://www.johanndutoit.net/2012/05/11/new-site-and-blog.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2012/05/11/new-site-and-blog.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Thu, 10 May 2012 22:00:00 GMT</pubDate></item><item><title><![CDATA[Late Night Coding Ideas]]></title><description><![CDATA[<p>Started writing <a href="http://www.curriculumvitae.co.za/" target="_blank">Curriculum Vitae</a> over. Going to be open sourcing everything.</p>
+
+<p>Learned a lot from the first time but after watching traffic and seeing reactions to the site I made a&nbsp;informed&nbsp;decision.</p>
+
+<p>Analytics show that I will need to implement a "com on and create your CV, oh want to save all that? Then login and save it".</p>
+
+<p>I'm trying to shy away from having all actions only&nbsp;accessible&nbsp;after logging in. Going to try to expose as much of the service as I can before a user has to login.</p>
+
+<p>Along with this options to customize the the CV generation according to your tastes and how you want it's layout.&nbsp;</p>
+
+<p>I'm going to this by&nbsp;separating&nbsp;all parts of the infrastructure. It's a lot of work but will be a interesting journey.</p>
+
+<p>First ?&nbsp;</p>
+
+<p><b>The Service Generation Service.&nbsp;</b></p>
+
+<p>This weekend I'll be starting development on a new Service that will allow me and anyone else to simply call a API and have it return me a CV. The service will not store any data. Only Input and Output. Every Service built after this will be built using the same idea. This allows me to scale certain components as the need arises. For example. Say that 80% of users are generating CV's but only 10% are logging and saving their information. So no need to scale out the site but I will be able to scale the CV Building Server. Get Where I'm going with this?</p>
+
+<p>Created a Organization on Github to organize my efforts and started on the CV Build Service.&nbsp;</p>
+
+<p>View the organization at :</p>
+
+<p><a href="https://github.com/CurriculumVitae">https://github.com/CurriculumVitae</a></p>
+
+<p>and the Project at:</p>
+
+<p><a href="https://github.com/CurriculumVitae/CV-Builder">https://github.com/CurriculumVitae/CV-Builder</a></p>]]></description><link>http://www.johanndutoit.net/2012/05/05/late-night-coding-ideas.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2012/05/05/late-night-coding-ideas.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Fri, 04 May 2012 22:00:00 GMT</pubDate></item><item><title><![CDATA[Cloud Based Workflow]]></title><description><![CDATA[<p>I have been thinking a lot about cloud based workflow management.</p>
+
+<p>I keep watching all these conference videos and reading blogs about how cool Github is, as they have this amazing workflow going. Well why not give that to everyone ?</p>
+
+<p>Build a service that hosts a configurable chat bot , integration with Github / CodePlex / BitBucket, integration with the major application hosts like Heroku and even Rackspace and Amazon EC2, easy to use chat interface for the office, a build server and anything else a we can throw at it ...</p>
+
+<p>Sort of a Glue between all the services for companies.</p>
+
+<p>Then think about it.</p>
+
+<ul>
+<li>From John - Quickly perform that Deploy! We need to get this fix out!<br /></li>
+<li>-&gt; somebotname deploy somoesitename<br /></li>
+<li>Retrieving Fresh Codebase from Github<br /></li>
+<li>Running Tests ....<br /></li>
+<li>5 out of 5 passed - 100%<br /></li>
+<li>Deploying to 5 Servers using Torrents / FTP ....<br /></li>
+<li>Site Deployed in 5.124214s<br /></li>
+<li>(To Everyone) John Deployed somesitename. Build passed view at - somesitename<br /></li>
+<li>-&gt; somebotname scale rackspace 2 size=512mb<br /></li>
+<li>Creating 2 Rackspace Server with 512mb ram.<br /></li>
+</ul>
+
+<p>Going to be building this.</p>
+
+<p>No idea when or if it will be done but that's what I want for my development!</p>]]></description><link>http://www.johanndutoit.net/2012/04/21/cloud-based-workflow.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2012/04/21/cloud-based-workflow.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Fri, 20 Apr 2012 22:00:00 GMT</pubDate></item><item><title><![CDATA[New Features for Curriculum Vitae]]></title><description><![CDATA[<p>The site - <a href="http://www.curriculumvitae.co.za/" target="_blank">Curriculum Vitae</a>&nbsp;- is currently very tightly build. Which is very bad. All data and functions - except for the Mail Server - are in the main application, which was fine while I was developing it but recently I have been wanting to expand it with new features but they require a bit of a rewrite of some of the functions.</p>
+
+<ol>
+<li>First Feature I would like to implement would be to allow users to generate a CV without logging in. Only asking for a Login if they want to save their information. This enables me to generate CV's for even the paranoid.</li>
+<li>Second Feature would be sections for your CV. Which you would be able to move, edit, add and remove. This will give the builder quite a bit of&nbsp;strength.</li>
+<li>Third feature would be custom templates for Recruiters. Every Recruiter wants to only see information in their format and how they expect it.&nbsp;</li>
+</ol>
+
+<p>Got some work ahead of me, so let's do this.</p>]]></description><link>http://www.johanndutoit.net/2012/04/17/new-features-for-curriculum-vitae.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2012/04/17/new-features-for-curriculum-vitae.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Mon, 16 Apr 2012 22:00:00 GMT</pubDate></item><item><title><![CDATA[Setup Nginx for CodeIgniter on Ubuntu]]></title><description><![CDATA[<p>I recently launched my site - <a href="http://www.curriculumvitae.co.za/" target="_blank">Curriculum Vitae</a> - which is built , mostly, with PHP and MySQL, the regular LAMP stack. And of course I used the great Twitter Bootstrap and Codeigniter Frameworks.</p>
+
+<p>The site is running a on a VPS with Ubuntu 11.10. It all was very easy to setup as at first I used Apache2 which is a great server and the site was running for 2 weeks with this configuration but I kept reading on Nginx and saw a real benefit to having a reverse proxy already setup handling requests.</p>
+
+<p>So I set out create a server that would run my CodeIgniter Site and keep PHP as fast as I could.</p>
+
+<h3>Step 1 - Updating Apt with sources</h3>
+
+<p>As we are running Ubuntu (But this should work in Debian too, worth a try right?) we would want to use apt. So first let's get a fresh package list.</p>
+
+<pre class="prettyprint">
+sudo apt-get update
+</pre>
+
+<h3>Step 2 - Installing Nginx</h3>
+
+<p>Thanks to apt this is really easy.</p>
+
+<pre class="prettyprint">sudo apt-get install nginx</pre>
+
+That just too easy isn't it no need to compile! Test that you Nginx is indeed working by going to localhost:80, if not use some Google-fu.
+
+<h3>Step 3 - Installing PHP5</h3>
+
+Again thanks to Apt this is just as easy. This is the&nbsp;usual&nbsp;suite of modules that I install so customize to your own needs.
+
+<br />
+&nbsp;
+
+<pre class="prettyprint">sudo apt-get install php5-mysql php5-curl php5-gd php5-idn php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl</pre>
+
+Check if install by&nbsp;successful by issues the command
+
+<br /><br />
+
+<pre class="prettyprint">php -v</pre>
+
+If your Version of PHP is shown all is OK if not, check for any errors that may have&nbsp;occurred&nbsp;during install.
+
+<h3>Step 4 - Installing PHP-FPM</h3>
+
+Nginx is quite diffrent from Apache. First and foremost it's non-blocking while Apache blocks, but for our context Nginx does not run PHP itself. Nginx was built as a reverse proxy, so it simply forwards requests to the specified url / address. So to run PHP we need a container that would run the PHP and act as the host where Nginx is sending requests to.
+
+This is where PHP-FPM comes in. PHP runs as a container and runs the PHP files when requests come in. Great so lets install it!
+
+<br />
+&nbsp;
+
+<pre class="prettyprint">apt-get install php5-fpm</pre>
+
+That should install FPM and start the service. Great so we are half-way there!
+
+<h3>Step 5 - Configure Nginx to forward requests for PHP to PHP-FPM</h3>
+
+Now we have a default installation of Nginx and PHP-FPM running. Wow!
+
+Let's configure Nginx to forward requests to PHP-FPM and in a way that would allow CodeIgniter to run just as it would have on Apache with Rewrite. I'm assuming your using Rewrite and no Query String Url.
+
+Edit Nginx's Site Configuration at&nbsp;<b>/etc/nginx/sites-available/default </b>and include the following configuration:
+
+<br /><br />
+
+<pre class="prettyprint">
+server {
+    server_name example.com;
+    root path_to_your_public_root_dir;
+
+    index index.html index.php index.htm;
+
+    # set expiration of assets to MAX for caching
+    location ~* \.(ico|css|js|gif|jpe?g|png)(\?[0-9]+)?$ {
+        expires max;
+        log_not_found off;
+    }
+
+    location / {
+        # Check if a file exists, or route it to index.php.
+        try_files $uri $uri/ /index.php;
+    }
+
+    location ~* \.php$ {
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_index index.php;
+        fastcgi_split_path_info ^(.+\.php)(.*)$;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+
+}
+</pre>
+
+<p>Replace <b>server<em>name</b>, <b>root</b>, <b>fastcgi</em>pass </b>with your enviroment values.</p>
+
+<p>If you plan on hosting multiple CodeIgniter sites with this Instance, think about moving the common settings to a file and including the file.<br /></p>
+
+<p>So the&nbsp;
+<b>/etc/nginx/sites-available/default</b>&nbsp;would contain:</p>
+
+<pre class="prettyprint">
+server {
+    server_name example.com;
+    root path_to_your_public_root_dir;
+    include /etc/nginx/ci_host;
+}
+</pre>
+
+<p>and <b>/etc/nginx/ci_host</b> would contain:</p>
+
+<pre  class="prettyprint">
+index index.html index.php index.htm;
+
+# set expiration of assets to MAX for caching
+location ~* \.(ico|css|js|gif|jpe?g|png)(\?[0-9]+)?$ {
+    expires max;
+    log_not_found off;
+}
+
+location / {
+    # Check if a file exists, or route it to index.php.
+    try_files $uri $uri/ /index.php;
+}
+
+location ~* \.php$ {
+    fastcgi_pass 127.0.0.1:9000;
+    fastcgi_index index.php;
+    fastcgi_split_path_info ^(.+\.php)(.*)$;
+    include fastcgi_params;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+}
+</pre>
+
+<h3>Step 6 - Restart and Rejoice !</h3>
+
+<p>After all the configration is done restart Nginx by using:</p>
+
+<pre class="prettyprint">sudo service nginx restart</pre>
+
+<p>If you visit your configured site you it should show and behave just like to would have under Apache 2 with Rewrites. Good Job!</p>
+
+<p>For a bit of a speed boost consider install PHP-APC too. The combination of Nginx, PHP-FPM and PHP APC is very fast!</p>
+
+<p>Leave comments about common issues so we can help each other out!</p>]]></description><link>http://www.johanndutoit.net/2012/04/15/setup-nginx-for-codeigniter-on-ubuntu.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2012/04/15/setup-nginx-for-codeigniter-on-ubuntu.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Sat, 14 Apr 2012 22:00:00 GMT</pubDate></item><item><title><![CDATA[New Homepage for Curriculum Vitae]]></title><description><![CDATA[<p>Had a look at the current homepage for the site and there is too much TEXT.</p>
+
+<p>Here's the current homepage:</p>
+
+<div align="center">
+    <img style="width:90%" src="/img/posts/curriculumvitae/homepage-before-update-15-04-2012.png" alt="Old homepage of Curriculum Vitae" />
+</div>
+
+<p>No-one wants to read all that, users just want to manage and make CV's. Users want to get on the site and know what they site was built for and not read all the information about the site on the damn homepage.</p>
+
+<p>So did a update to the homepage. Wanted to show the goal of the site without too much reading involved. So the new homepage after the update looks like this:</p>
+
+<div align="center">
+    <img style="width:90%" src="/img/posts/curriculumvitae/homepage-after-update-15-04-2012.png" alt="New homepage of Curriculum Vitae" />
+</div>
+
+<p>What do you think ?</p>
+
+<p><b>See Linked-In is having a error ... Just get the Tomcat 7 Error when trying to find the image for that one user.</b></p>]]></description><link>http://www.johanndutoit.net/2012/04/15/new-homepage-for-curriculum-vitae.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2012/04/15/new-homepage-for-curriculum-vitae.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Sat, 14 Apr 2012 22:00:00 GMT</pubDate></item><item><title><![CDATA[Generating PDF Document with NodeJS and PHP]]></title><description><![CDATA[<p>Was working on my&nbsp;site&nbsp;-&nbsp;<a href="http://www.curriculumvitae.co.za/">Curriculum Vitae</a>&nbsp;-&nbsp;and needed to generate PDF's and extract data from PDF files for the users to download their CV in PDF Format.</p>
+
+<h3>Had the following Requirements for the Project:</h3>
+
+<ul>
+<li>Generate a PDF Document from HTML. Had to be able to generate PDF Documents that look just like the HTML Templates I created.</li></li>
+<li>Generate a Image from HTML. Used for Previews of your CV.</li></li>
+<li>Extract a Image from a PDF. Need one big image of the entire document, going to use this to add attachments documents to all generated CV's.</li></li>
+</ul>
+
+<h3>So how are we going to do this?</h3>
+
+<p>Was using a good old Python Script I wrote a couple of years ago but this just seems clanky:</p>
+
+<pre class="prettyprint">
+from PySide.QtCore import *
+from PySide.QtGui import *
+from PySide.QtWebKit import *
+
+app = QApplication(sys.argv)
+
+web = QWebView()
+
+if "http://" in sys.argv[1]:
+    web.load(QUrl(sys.argv[1]))
+else:
+    f = open(sys.argv[1], 'rb')
+    content = "".join(f.readlines())
+    web.setHtml(content)
+
+printer = QPrinter()
+printer.setPageSize(QPrinter.A4)
+printer.setOutputFormat(QPrinter.PdfFormat)
+printer.setFullPage(True)
+printer.setOutputFileName(sys.argv[2])
+
+import os
+
+def convertIt():
+
+    print sys.argv[2]
+
+    QApplication.exit()
+
+QObject.connect(web, SIGNAL("loadFinished(bool)"), convertIt)
+
+sys.exit(app.exec_())
+</pre>
+
+<p>This worked for the problem requirements and <a href="http://www.pyside.org/" target="_blank">PySide</a> is a brilliant and fast binding for Python but wanted a solution where I did not want to write a temporary file and did not want to keep this old script floating above the water. I't needs to retire some time.</p>
+
+<p>Then I found <a href="http://code.google.com/p/wkhtmltopdf/" target="_blank">WKHtmlToPDF</a>. Was very excited , finally someone created a binary that would do what I've been doing with the <a href="http://www.pyside.org/" target="_blank">PySide</a>&nbsp;binding.</p>
+
+<p>Checked the documentation and the binary even allowed input and output with stdin and stdout! Which I could have done with Python too, but that's more effort on my time. This allowed me to create a PDF that I could easily write out to the client. Bingo!</p>
+
+<h3>Required Actions before we can start</h3>
+
+<ul>
+<li>Download&nbsp;<a href="http://code.google.com/p/wkhtmltopdf/" target="_blank">WKHtmlToPDF</a>&nbsp;or&nbsp;<a href="http://code.google.com/p/wkhtmltopdf/" target="_blank">WKHtmlToImage</a>&nbsp;and remember to get the static qt patch version.</li>
+<li>Create a alias for wkhtmltopdf or / and wkhtmltopdf which points to the binaries.</li>
+<li>Install GhostScript to generate Images from PDF. Ensure the Convert command is available.</li>
+</ul>
+
+<h3>How to do this in PHP</h3>
+
+<hr />
+
+<p>The site is mostly written in PHP so did a PHP wrapper first.</p>
+
+<h4>Generate a PDF from HTML</h4>
+
+<pre class="prettyprint">
+/**
+* Returns the Binary Content of the Generated PDF from the HTML
+* @author Johann du Toit
+*/
+function pdf_from_html($html) {
+    $descriptorspec = array(
+        0 =&gt; array('pipe', 'r'), // stdin
+        1 =&gt; array('pipe', 'w'), // stdout
+        2 =&gt; array('pipe', 'w'), // stderr
+    );
+    $process = proc_open('wkhtmltopdf --margin-top 10 --no-outline -q - -', $descriptorspec, $pipes);
+
+    // Send the HTML on stdin
+    fwrite($pipes[0], $html);
+    fclose($pipes[0]);
+
+    // Read the outputs
+    $contents = stream_get_contents($pipes[1]);
+    $errors = stream_get_contents($pipes[2]);
+
+    fclose($pipes[1]);
+    $return_value = proc_close($process);
+
+    return $contents;
+}
+</pre>
+
+<h4>Generate a Image FROM HTML</h4>
+
+<pre class="prettyprint">
+    /**
+* Returns the Binary Content of the Image from the HTML
+* @author Johann du Toit
+*/
+function image_from_html($html) {
+    $descriptorspec = array(
+        0 =&gt; array('pipe', 'r'), // stdin
+        1 =&gt; array('pipe', 'w'), // stdout
+        2 =&gt; array('pipe', 'w'), // stderr
+    );
+    $process = proc_open('wkhtmltoimage -q - -', $descriptorspec, $pipes);
+
+    // Send the HTML on stdin
+    fwrite($pipes[0], $html);
+    fclose($pipes[0]);
+
+    // Read the outputs
+    $contents = stream_get_contents($pipes[1]);
+    $errors = stream_get_contents($pipes[2]);
+
+    fclose($pipes[1]);
+    $return_value = proc_close($process);
+
+    return $contents;
+}
+</pre>
+
+<h4>Generate a Image of a Document from PDF</h4>
+
+<pre class="prettyprint">
+/**
+* Returns the Binary Content of a Image Generated from a PDF
+* @author Johann du Toit
+*/
+function image_from_pdf($pdf_path) {
+    $descriptorspec = array(
+        0 =&gt; array('pipe', 'r'), // stdin
+        1 =&gt; array('pipe', 'w'), // stdout
+        2 =&gt; array('pipe', 'w'), // stderr
+    );
+    $process = proc_open('convert -density 350% -quality 85 -append pdf:- png:-', $descriptorspec, $pipes);
+
+    // Send the HTML on stdin
+    fwrite($pipes[0], file_get_contents($pdf_path));
+    fclose($pipes[0]);
+
+    // Read the outputs
+    $contents = stream_get_contents($pipes[1]);
+    $errors = stream_get_contents($pipes[2]);
+
+    fclose($pipes[1]);
+    $return_value = proc_close($process);
+
+    return $contents;
+}
+</pre>
+
+<h3>How to do this in NodeJS</h3></h3>
+
+<hr />
+
+<h4>Generate a PDF from HTML</h4>
+
+<pre class="prettyprint">
+    var util  = require('util'),
+    spawn = require('child_process').spawn;
+
+/**
+* Returns the Binary Content of the PDF Generated from the HTML
+* @author Johann du Toit
+*/
+function html_to_pdf(html, fn, err) {
+
+    var child_process = spawn('wkhtmltopdf', ['--margin-top', '10', '--no-outline', '-q', '-', '-']);
+
+    var dt = false;
+
+    child_process.on('exit', function (code) {
+        if(code == 0) fn(dt);
+        else err(dt);
+    });
+
+    child_process.stdout.on('data', function (data) {
+        dt = data;
+    });
+
+    child_process.stderr.on('data', function (data) {
+        dt = data;
+    });
+
+    child_process.stdin.write(html);
+    child_process.stdin.end();
+}
+</pre>
+
+<h4>Generate a Image FROM HTML</h4></h4>
+
+<pre class="prettyprint">
+var util  = require('util'),
+spawn = require('child_process').spawn;
+
+/**
+* Returns a Image created from the HTML given to the method.
+* @author Johann du Toit
+*/
+function html_to_image(html, fn, err) {
+
+    var child_process = spawn('wkhtmltoimage', ['-', '-']);
+
+    var dt = false;
+
+    child_process.on('exit', function (code) {
+        if(code == 0) fn(dt);
+        else err(dt);
+    });
+
+    child_process.stdout.on('data', function (data) {
+        dt = data;
+    });
+
+    child_process.stderr.on('data', function (data) {
+        dt = data;
+    });
+
+    child_process.stdin.write(html);
+    child_process.stdin.end();
+}
+</pre>
+
+<h4>Generate a Image of a Document from PDF</h4></h4>
+
+<pre class="prettyprint">
+var util  = require('util'),
+spawn = require('child_process').spawn;
+
+/**
+* Returns the Binary Content of a Image Generated from a PDF
+* @author Johann du Toit
+*/
+function pdf_to_image(pdf_content, fn, err) {
+
+    var child_process = spawn('convert', ['-density', '350%', '-quality', '85', '-append', 'pdf:-', 'png:-']);
+
+    var dt = false;
+
+    child_process.on('exit', function (code) {
+        if(code == 0) fn(dt);
+        else err(dt);
+    });
+
+    child_process.stdout.on('data', function (data) {
+        dt = data;
+    });
+
+    child_process.stderr.on('data', function (data) {
+        dt = data;
+    });
+
+    child_process.stdin.write(pdf_content);
+    child_process.stdin.end();
+}
+</pre>
+
+<h3>And that's it</h3>
+
+<p>There you have, generate PDF Document from Various Input in PHP and NodeJS. Not anything advance but always good to have in your toolbox.</p>
+
+<p>Have a better way ? Let me know !</p>]]></description><link>http://www.johanndutoit.net/2012/04/14/generating-pdf-document-with-nodejs-and-php.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2012/04/14/generating-pdf-document-with-nodejs-and-php.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Fri, 13 Apr 2012 22:00:00 GMT</pubDate></item><item><title><![CDATA[My First Blog]]></title><description><![CDATA[<p>My First attempt at a blog.</p>
+
+<p>Have been using Facebook as a Blog for too long now ...</p>
+
+<p>Going to be writing about:</p>
+
+<ul>
+<li>My Projects I'm working on</li>
+<li>Experience Learning SDL Tridion</li>
+<li>New Frameworks and Languages</li>
+<li>My Personal Opinions</li>
+</ul>
+
+<p>And anything else that comes to mind.</p>
+
+<p>Let the fun begin!</p>]]></description><link>http://www.johanndutoit.net/2012/04/13/my-first-blog.html</link><guid isPermaLink="true">http://www.johanndutoit.net/2012/04/13/my-first-blog.html</guid><dc:creator><![CDATA[Johann du Toit]]></dc:creator><pubDate>Thu, 12 Apr 2012 22:00:00 GMT</pubDate></item></channel></rss>

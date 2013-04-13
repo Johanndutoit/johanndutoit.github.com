@@ -1,0 +1,286 @@
+<!DOCTYPE html><!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]--><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>Generating PDF Document with NodeJS and PHP | Johann du Toit</title><meta name="description" content="&lt;p&gt;Was working on my&nbsp;site&nbsp;-&nbsp;&lt;a href=&quot;http://www.curriculumvitae.co.za/&quot;&gt;Curriculum Vitae&lt;/a&gt;&nbsp;-&nbsp;and needed to generate PDF's and extract data from PDF files for the users to download their CV in PDF Format.&lt;/p&gt;
+
+&lt;h3&gt;Had the followi..."><meta itemprop="image" content="http://www.johann.co.za/img/johann.jpg"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><link rel="alternate" type="application/rss+xml" title="Atom Feed" href="http://feeds.feedburner.com/JohannduToit"><link rel="canonical" href="http://johanndutoit.net/"><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" media="all"><link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"><link href="/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" media="all"><link href="/css/style.css" rel="stylesheet" type="text/css" media="all"></head><body><div id="headerblock" class="container-fluid"><div class="container"><div class="row"><div class="span8 offset2"><div id="title-bar"><a id="header_about_link" style="float:right;margin-top:2px;" href="/">About</a><a id="blog-name" href="/"><h3>Johann du Toit</h3></a><span id="slogan-block" style="margin-left:5px;margin-top:5px;"><p>| My crazy adventures with Computers.</p></span></div><div style="margin-bottom:10px;" class="clearfix"></div></div></div></div></div><div id="mainpage"><div id="main-page-container" class="container"><div class="row"><div class="span8 offset2"><div style="margin:20px;"><p>Was working on my&nbsp;site&nbsp;-&nbsp;<a href="http://www.curriculumvitae.co.za/">Curriculum Vitae</a>&nbsp;-&nbsp;and needed to generate PDF's and extract data from PDF files for the users to download their CV in PDF Format.</p>
+
+<h3>Had the following Requirements for the Project:</h3>
+
+<ul>
+<li>Generate a PDF Document from HTML. Had to be able to generate PDF Documents that look just like the HTML Templates I created.</li></li>
+<li>Generate a Image from HTML. Used for Previews of your CV.</li></li>
+<li>Extract a Image from a PDF. Need one big image of the entire document, going to use this to add attachments documents to all generated CV's.</li></li>
+</ul>
+
+<h3>So how are we going to do this?</h3>
+
+<p>Was using a good old Python Script I wrote a couple of years ago but this just seems clanky:</p>
+
+<pre class="prettyprint">
+from PySide.QtCore import *
+from PySide.QtGui import *
+from PySide.QtWebKit import *
+
+app = QApplication(sys.argv)
+
+web = QWebView()
+
+if "http://" in sys.argv[1]:
+    web.load(QUrl(sys.argv[1]))
+else:
+    f = open(sys.argv[1], 'rb')
+    content = "".join(f.readlines())
+    web.setHtml(content)
+
+printer = QPrinter()
+printer.setPageSize(QPrinter.A4)
+printer.setOutputFormat(QPrinter.PdfFormat)
+printer.setFullPage(True)
+printer.setOutputFileName(sys.argv[2])
+
+import os
+
+def convertIt():
+
+    print sys.argv[2]
+
+    QApplication.exit()
+
+QObject.connect(web, SIGNAL("loadFinished(bool)"), convertIt)
+
+sys.exit(app.exec_())
+</pre>
+
+<p>This worked for the problem requirements and <a href="http://www.pyside.org/" target="_blank">PySide</a> is a brilliant and fast binding for Python but wanted a solution where I did not want to write a temporary file and did not want to keep this old script floating above the water. I't needs to retire some time.</p>
+
+<p>Then I found <a href="http://code.google.com/p/wkhtmltopdf/" target="_blank">WKHtmlToPDF</a>. Was very excited , finally someone created a binary that would do what I've been doing with the <a href="http://www.pyside.org/" target="_blank">PySide</a>&nbsp;binding.</p>
+
+<p>Checked the documentation and the binary even allowed input and output with stdin and stdout! Which I could have done with Python too, but that's more effort on my time. This allowed me to create a PDF that I could easily write out to the client. Bingo!</p>
+
+<h3>Required Actions before we can start</h3>
+
+<ul>
+<li>Download&nbsp;<a href="http://code.google.com/p/wkhtmltopdf/" target="_blank">WKHtmlToPDF</a>&nbsp;or&nbsp;<a href="http://code.google.com/p/wkhtmltopdf/" target="_blank">WKHtmlToImage</a>&nbsp;and remember to get the static qt patch version.</li>
+<li>Create a alias for wkhtmltopdf or / and wkhtmltopdf which points to the binaries.</li>
+<li>Install GhostScript to generate Images from PDF. Ensure the Convert command is available.</li>
+</ul>
+
+<h3>How to do this in PHP</h3>
+
+<hr />
+
+<p>The site is mostly written in PHP so did a PHP wrapper first.</p>
+
+<h4>Generate a PDF from HTML</h4>
+
+<pre class="prettyprint">
+/**
+* Returns the Binary Content of the Generated PDF from the HTML
+* @author Johann du Toit
+*/
+function pdf_from_html($html) {
+    $descriptorspec = array(
+        0 =&gt; array('pipe', 'r'), // stdin
+        1 =&gt; array('pipe', 'w'), // stdout
+        2 =&gt; array('pipe', 'w'), // stderr
+    );
+    $process = proc_open('wkhtmltopdf --margin-top 10 --no-outline -q - -', $descriptorspec, $pipes);
+
+    // Send the HTML on stdin
+    fwrite($pipes[0], $html);
+    fclose($pipes[0]);
+
+    // Read the outputs
+    $contents = stream_get_contents($pipes[1]);
+    $errors = stream_get_contents($pipes[2]);
+
+    fclose($pipes[1]);
+    $return_value = proc_close($process);
+
+    return $contents;
+}
+</pre>
+
+<h4>Generate a Image FROM HTML</h4>
+
+<pre class="prettyprint">
+    /**
+* Returns the Binary Content of the Image from the HTML
+* @author Johann du Toit
+*/
+function image_from_html($html) {
+    $descriptorspec = array(
+        0 =&gt; array('pipe', 'r'), // stdin
+        1 =&gt; array('pipe', 'w'), // stdout
+        2 =&gt; array('pipe', 'w'), // stderr
+    );
+    $process = proc_open('wkhtmltoimage -q - -', $descriptorspec, $pipes);
+
+    // Send the HTML on stdin
+    fwrite($pipes[0], $html);
+    fclose($pipes[0]);
+
+    // Read the outputs
+    $contents = stream_get_contents($pipes[1]);
+    $errors = stream_get_contents($pipes[2]);
+
+    fclose($pipes[1]);
+    $return_value = proc_close($process);
+
+    return $contents;
+}
+</pre>
+
+<h4>Generate a Image of a Document from PDF</h4>
+
+<pre class="prettyprint">
+/**
+* Returns the Binary Content of a Image Generated from a PDF
+* @author Johann du Toit
+*/
+function image_from_pdf($pdf_path) {
+    $descriptorspec = array(
+        0 =&gt; array('pipe', 'r'), // stdin
+        1 =&gt; array('pipe', 'w'), // stdout
+        2 =&gt; array('pipe', 'w'), // stderr
+    );
+    $process = proc_open('convert -density 350% -quality 85 -append pdf:- png:-', $descriptorspec, $pipes);
+
+    // Send the HTML on stdin
+    fwrite($pipes[0], file_get_contents($pdf_path));
+    fclose($pipes[0]);
+
+    // Read the outputs
+    $contents = stream_get_contents($pipes[1]);
+    $errors = stream_get_contents($pipes[2]);
+
+    fclose($pipes[1]);
+    $return_value = proc_close($process);
+
+    return $contents;
+}
+</pre>
+
+<h3>How to do this in NodeJS</h3></h3>
+
+<hr />
+
+<h4>Generate a PDF from HTML</h4>
+
+<pre class="prettyprint">
+    var util  = require('util'),
+    spawn = require('child_process').spawn;
+
+/**
+* Returns the Binary Content of the PDF Generated from the HTML
+* @author Johann du Toit
+*/
+function html_to_pdf(html, fn, err) {
+
+    var child_process = spawn('wkhtmltopdf', ['--margin-top', '10', '--no-outline', '-q', '-', '-']);
+
+    var dt = false;
+
+    child_process.on('exit', function (code) {
+        if(code == 0) fn(dt);
+        else err(dt);
+    });
+
+    child_process.stdout.on('data', function (data) {
+        dt = data;
+    });
+
+    child_process.stderr.on('data', function (data) {
+        dt = data;
+    });
+
+    child_process.stdin.write(html);
+    child_process.stdin.end();
+}
+</pre>
+
+<h4>Generate a Image FROM HTML</h4></h4>
+
+<pre class="prettyprint">
+var util  = require('util'),
+spawn = require('child_process').spawn;
+
+/**
+* Returns a Image created from the HTML given to the method.
+* @author Johann du Toit
+*/
+function html_to_image(html, fn, err) {
+
+    var child_process = spawn('wkhtmltoimage', ['-', '-']);
+
+    var dt = false;
+
+    child_process.on('exit', function (code) {
+        if(code == 0) fn(dt);
+        else err(dt);
+    });
+
+    child_process.stdout.on('data', function (data) {
+        dt = data;
+    });
+
+    child_process.stderr.on('data', function (data) {
+        dt = data;
+    });
+
+    child_process.stdin.write(html);
+    child_process.stdin.end();
+}
+</pre>
+
+<h4>Generate a Image of a Document from PDF</h4></h4>
+
+<pre class="prettyprint">
+var util  = require('util'),
+spawn = require('child_process').spawn;
+
+/**
+* Returns the Binary Content of a Image Generated from a PDF
+* @author Johann du Toit
+*/
+function pdf_to_image(pdf_content, fn, err) {
+
+    var child_process = spawn('convert', ['-density', '350%', '-quality', '85', '-append', 'pdf:-', 'png:-']);
+
+    var dt = false;
+
+    child_process.on('exit', function (code) {
+        if(code == 0) fn(dt);
+        else err(dt);
+    });
+
+    child_process.stdout.on('data', function (data) {
+        dt = data;
+    });
+
+    child_process.stderr.on('data', function (data) {
+        dt = data;
+    });
+
+    child_process.stdin.write(pdf_content);
+    child_process.stdin.end();
+}
+</pre>
+
+<h3>And that's it</h3>
+
+<p>There you have, generate PDF Document from Various Input in PHP and NodeJS. Not anything advance but always good to have in your toolbox.</p>
+
+<p>Have a better way ? Let me know !</p><hr><p style="font-size:14px;"> Posted on 2012/04/14 by <a href="/">Johann du Toit</a></p></div></div></div></div><div id="meta-block" class="linksbelow"><div class="container"><div class="row"><div style="padding:15px;padding-top:10px;" class="span8 offset2"><h3 style="margin:10px;">Recent Posts</h3><ul style="list-style-type: circle;"><li><a href="/2013/01/08/the-daily-reporting-programmer.html">The Daily Reporting Programmer</a></li><li><a href="/2013/01/07/starting-my-bachelor-of-science-in-informatics.html">Starting my Bachelor of Science in Informatics</a></li><li><a href="/2013/01/07/searching-in-a-radius-using-postgres.html">Searching in a Radius using Postgres</a></li><li><a href="/2012/11/08/ie8-finally-losing-relevance-to-consumers.html">IE8 Finally Losing Relevance to consumers</a></li><li><a href="/2012/10/27/introducing-identichip.html">Introducing IdentiChip</a></li><li><a href="/2012/07/22/slow-down-cowboy.html">Slow Down Cowboy</a></li><li><a href="/2012/07/22/oauth-in-a-service-oriented-architecture.html">OAuth in a Service-Oriented Architecture</a></li><li><a href="/2012/05/22/shotgun-programming.html">Shotgun Programming</a></li></ul><p style="margin-left:10px;margin-top:15px;"><a href="/archive.html"><View>all Posts</View></a></p></div></div></div></div></div><footer><div style="margin-top:0;" class="container"><div class="span8 offset2"><p>Copyright Johann du Toit 2012 - 2012 <a id="footer_subscribe_link" href="/atom.xml" style="margin-left:10px;margin-right:10px;">Subscribe to RSS</a><a id="footer_about_link" href="/">About</a></p></div></div></footer><script src="/js/prettify.min.js" type="text/javascript"></script><script type="text/javascript">window.prettyPrint && prettyPrint()
+</script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-13256670-7']);
+_gaq.push(['_setDomainName', 'johanndutoit.net']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script></body></html>

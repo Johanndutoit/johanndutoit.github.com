@@ -1,0 +1,90 @@
+<!DOCTYPE html><!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]--><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>Searching in a Radius using Postgres | Johann du Toit</title><meta name="description" content="&lt;p&gt;Creating a GEO application has never been easier. You can have a fully working &quot;What's close to me&quot; in a matter of minutes using some great open-source tools.&lt;/p&gt;
+
+&lt;p&gt;Postgres has lots of features. With the biggest in my opinion being extensions. Which..."><meta itemprop="image" content="http://www.johann.co.za/img/johann.jpg"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><link rel="alternate" type="application/rss+xml" title="Atom Feed" href="http://feeds.feedburner.com/JohannduToit"><link rel="canonical" href="http://johanndutoit.net/"><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" media="all"><link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"><link href="/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" media="all"><link href="/css/style.css" rel="stylesheet" type="text/css" media="all"></head><body><div id="headerblock" class="container-fluid"><div class="container"><div class="row"><div class="span8 offset2"><div id="title-bar"><a id="header_about_link" style="float:right;margin-top:2px;" href="/">About</a><a id="blog-name" href="/"><h3>Johann du Toit</h3></a><span id="slogan-block" style="margin-left:5px;margin-top:5px;"><p>| My crazy adventures with Computers.</p></span></div><div style="margin-bottom:10px;" class="clearfix"></div></div></div></div></div><div id="mainpage"><div id="main-page-container" class="container"><div class="row"><div class="span8 offset2"><div style="margin:20px;"><p>Creating a GEO application has never been easier. You can have a fully working "What's close to me" in a matter of minutes using some great open-source tools.</p>
+
+<p>Postgres has lots of features. With the biggest in my opinion being extensions. Which take this amazing Database platform to the next level.</p>
+
+<h2>Options</h2>
+
+<p>When writing a app that wishes to use Postgres for GEO functions you have 2 choices (to the best of my knowledge):</p>
+
+<ul>
+<li>PostGis which provides advance GEO functions to Postgres. I've played with it and it seems way to bulky for my needs</li>
+<li>Cube and EarthDistance, these 2 extensions provide easy to use and very fast methods to accomplish some of the more minor geo related activities.</li>
+</ul>
+
+<h2>Why do the calculations in a database server</h2>
+
+<p>It should be pretty obvious. The server already has all the data and with extensions being written in c / c++ it's very fast. </p>
+
+<p>An Index can also be added for a even bigger boost.</p>
+
+<h2>Using my Choice - Cube and EarthDistance</h2>
+
+<p>To start using these 2 extensions you will need to create a database (which I take it you know how to do) and "create" / enable them for use by the schema you'll be using.</p>
+
+<p>To do this run</p>
+
+<pre class="prettyprint">CREATE EXTENSION cube;</pre>
+
+<p>and</p>
+
+<pre class="prettyprint">CREATE EXTENSION earthdistance;</pre>
+
+<p>This will create +-44 functions that will be usable by your queries.</p>
+
+<p><strong style="color:red;">For our examples I created a table named events with a id (serial), name (varchar 255), lat (double) and lng (double) columns. Be sure to keep that in mind.</strong></p>
+
+<h3>Calculating the distance between coordinates</h3>
+
+<p>To calculate the distance between 2 coordinates we use <code>earth<em>distance(ll</em>to<em>earth($lat</em>lng<em>cube), ll</em>to<em>earth($lat</em>lng_cube))</code>. This functions allows us to pass 2 sets of coordinates and it will return a numerical value representing metres.</p>
+
+<p>This can be used for many things such as ordering according to events that are nearest to a certain location. An example of which would be:</p>
+
+<pre class="prettyprint">SELECT events.id, events.name, earth_distance(ll_to_earth( {current_user_lat}, {current_user_lng} ), ll_to_earth(events.lat, events.lng)) as distance_from_current_location FROM events ORDER BY distance_from_current_location ASC;</pre>
+
+<p>This will give us a nice list of events sorted by their distance to our current location. With the closest being first.</p>
+
+<h3>Finding Records in a Radius</h3>
+
+<p>Another great function provided by these extensions is the <code>earth<em>box(ll</em>to<em>earth($lat</em>lng<em>cube), $radius</em>in<em>metres)</code> this function allows us to perform a simple compare to find all records in a certain radius. This is done by the function by returning the great circle distance between the points, a more thorough explanation is located at <a href="http://en.wikipedia.org/wiki/Great_circle">http://en.wikipedia.org/wiki/Great</em>circle</a>. </p>
+
+<p>This could be used to show all events in our current city.</p>
+
+<p>An example of such a query:</p>
+
+<pre class="prettyprint">SELECT events.id, events.name FROM events WHERE earth_box( {current_user_lat}, {current_user_lng}, {radius_in_metres}) @> ll_to_earth(events.lat, events.lng);</pre>
+
+<p>This Query would then only return the records in that radius. Pretty easy !</p>
+
+<h2>Speeding up these queries</h2>
+
+<p>You might have noticed that these queries could get pretty expensive. In my experience it's best to ensure that the table has a index for these fields. This is created using:</p>
+
+<pre class="prettyprint">CREATE INDEX ${name_of_index} on events USING gist(ll_to_earth(lat, lng));</pre>
+
+<p>This will pre-calculate the degrees for each of the coordinates that will make the above queries run much faster as it's not doing those calculations on each row for each run.</p>
+
+<p>This of course assumes that you have a table named events which has a lat and lng column.</p>
+
+<h3>Datatypes</h3>
+
+<p>For my quick app I simply used double datatypes for my <strong>lat</strong> and <strong>lng</strong> columns. This allowed me to use it with one of the NodeJS ORM's that made development much quicker, instead of having to find some custom solution to handle the other GIST datatypes.</p>
+
+<h2>That's it !</h2>
+
+<p>Amazing right ?!? We've just built a quick database that is able to handle some GEO functions to build amazing mapping and GEO social apps !</p><hr><p style="font-size:14px;"> Posted on 2013/01/07 by <a href="/">Johann du Toit</a></p></div></div></div></div><div id="meta-block" class="linksbelow"><div class="container"><div class="row"><div style="padding:15px;padding-top:10px;" class="span8 offset2"><h3 style="margin:10px;">Recent Posts</h3><ul style="list-style-type: circle;"><li><a href="/2013/01/08/the-daily-reporting-programmer.html">The Daily Reporting Programmer</a></li><li><a href="/2013/01/07/starting-my-bachelor-of-science-in-informatics.html">Starting my Bachelor of Science in Informatics</a></li><li><a href="/2013/01/07/searching-in-a-radius-using-postgres.html">Searching in a Radius using Postgres</a></li><li><a href="/2012/11/08/ie8-finally-losing-relevance-to-consumers.html">IE8 Finally Losing Relevance to consumers</a></li><li><a href="/2012/10/27/introducing-identichip.html">Introducing IdentiChip</a></li><li><a href="/2012/07/22/slow-down-cowboy.html">Slow Down Cowboy</a></li><li><a href="/2012/07/22/oauth-in-a-service-oriented-architecture.html">OAuth in a Service-Oriented Architecture</a></li><li><a href="/2012/05/22/shotgun-programming.html">Shotgun Programming</a></li></ul><p style="margin-left:10px;margin-top:15px;"><a href="/archive.html"><View>all Posts</View></a></p></div></div></div></div></div><footer><div style="margin-top:0;" class="container"><div class="span8 offset2"><p>Copyright Johann du Toit 2012 - 2012 <a id="footer_subscribe_link" href="/atom.xml" style="margin-left:10px;margin-right:10px;">Subscribe to RSS</a><a id="footer_about_link" href="/">About</a></p></div></div></footer><script src="/js/prettify.min.js" type="text/javascript"></script><script type="text/javascript">window.prettyPrint && prettyPrint()
+</script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-13256670-7']);
+_gaq.push(['_setDomainName', 'johanndutoit.net']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script></body></html>

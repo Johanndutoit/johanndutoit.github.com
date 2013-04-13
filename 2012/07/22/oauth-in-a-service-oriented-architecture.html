@@ -1,0 +1,92 @@
+<!DOCTYPE html><!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]--><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>OAuth in a Service-Oriented Architecture | Johann du Toit</title><meta name="description" content="&lt;p&gt;While creating the new version of Curriculum Vitae I have decided to devide the entire system up into diffrent parts that each have a job. I was aiming for a service orientated architecture.&lt;/p&gt;
+
+&lt;p&gt;Which sounds very good on paper but it's a bit harder..."><meta itemprop="image" content="http://www.johann.co.za/img/johann.jpg"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><link rel="alternate" type="application/rss+xml" title="Atom Feed" href="http://feeds.feedburner.com/JohannduToit"><link rel="canonical" href="http://johanndutoit.net/"><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" media="all"><link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"><link href="/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" media="all"><link href="/css/style.css" rel="stylesheet" type="text/css" media="all"></head><body><div id="headerblock" class="container-fluid"><div class="container"><div class="row"><div class="span8 offset2"><div id="title-bar"><a id="header_about_link" style="float:right;margin-top:2px;" href="/">About</a><a id="blog-name" href="/"><h3>Johann du Toit</h3></a><span id="slogan-block" style="margin-left:5px;margin-top:5px;"><p>| My crazy adventures with Computers.</p></span></div><div style="margin-bottom:10px;" class="clearfix"></div></div></div></div></div><div id="mainpage"><div id="main-page-container" class="container"><div class="row"><div class="span8 offset2"><div style="margin:20px;"><p>While creating the new version of Curriculum Vitae I have decided to devide the entire system up into diffrent parts that each have a job. I was aiming for a service orientated architecture.</p>
+
+<p>Which sounds very good on paper but it's a bit harder when you add in that your users are authenticating with OAuth 2.0 too. So now what? How do I created a service that supports OAuth 2.0 for developers but still allow me to build sites that authenticate using sites like facebook etc.</p>
+
+<p>So in this post I'm going to be guiding you through what I did. It might not be the best way, but it's my way and it worked.</p>
+
+<p>Here's a basic Flow Chart of the entire process of Authenticating a Registering, obviously skipping a few if's but you get the picture.</p>
+
+<p>Before I continue, this is a open-source so feel free to join me at <a href="https://github.com/CurriculumVitae/CV-Data-Service">CV-Data-Service</a></p>
+
+<p><center>
+<img src="/img/posts/curriculumvitae/APIServiceOverview.png" alt="Flow Chart of Authentication and Registering" style="width:90%;" />
+</center></p>
+
+<h3>1. Authentication and Autherization</h3>
+
+<p>I went searching around the internet for the solution to this problem.</p>
+
+<p>I found a ton of useful reads as such as <a href="http://stackoverflow.com/questions/4574868/securing-my-rest-api-with-oauth-while-still-allowing-authentication-via-third-pa">REST and OAuth Stackoverflow Question</a>, which all tries to bring across the same message. There is a difference between Authentication and Authorization. Which had me stretching my head a few times?</p>
+
+<p>What's so important about this difference?</p>
+
+<p>Then one day while doing some more searching it hit me. OAuth 2.0 allows you to authorize other applications to certain parts of a user’s profile. And it does not matter that I login using other providers as it's still just OAuth 2.0. </p>
+
+<p>So the process would be: </p>
+
+<ul>
+<li>Request Authorization from the API with your Client application. </li>
+<li>The API checks that everything is in order and redirects us to the OAuth Authorization Screen. </li>
+<li>We check if the user is logged in. If not we redirect them to the 'connect' page. This page shows various options for logging in with providers such as Facebook, Google and Twitter. * We then let the user login, and once they are logged in we send them back to the authorization page. </li>
+<li>The page then lets the user authorize the application and we do all the callbacks to finish the transaction.</li>
+</ul>
+
+<p>Quite simply, except for the time it took me to understand what they all mean. So the important part is that it shouldn’t matter what we are using for authentication, I know OAuth 2.0 was never meant to be used for authentication but we're all just sheep following Google, Twitter and Facebook so there!, as we only want to authorize so authentication has nothing to do with the authorization call. We simply provide it responses and the clients get access or not.</p>
+
+<h3>2. Handling your Internal Apps</h3>
+
+<p>Great so now we have the process figured out. Let’s get coding.... oh wait how are we going to be handling internal apps.</p>
+
+<p>If all of our sites and app are just consumers of the numerous apes how are we going to allow only our website to register new users? And how do we know if a user was actually registered with us?</p>
+
+<p>Well I found a couple of solutions and ended up with a pretty basic one.</p>
+
+<p>The API allows authorization in 2 ways: * either provide an access token which would represent a user. * Or authorize the request as one made from an application.</p>
+
+<p>For authorization a user’s request we followed Facebook were we pass an access token which identifies the user. While for application authentication I quite liked HTTP-Signature by Joyent - https://github.com/joyent/node-http-signature. So for applications we only allow authorization through HTTP-Signature, helping us with some security. </p>
+
+<p>To control which applications are allowed to call functions such as 'register' we added a flag to the application. 'Internal', if an application is marked with this flag the application is one of our internal applications that are allowed to call functions such as register. We still do a lot of checking but allow us to control who calls what. Still thinking of providing something more than a Boolean as to allow only certain apps to do some action but for now we have it working.</p>
+
+<h3>3. Authenticating &amp; Registering Users through the same service</h3>
+
+<p>Now that we have:</p>
+
+<ul>
+<li>An OAuth Authorization Enabled Service</li>
+<li>Applications marked as 'internal' to allow only internal apps to perform actions such as 'register'</li>
+</ul>
+
+<p>Now we have to authenticate and registers users. To do this I built two handlers.</p>
+
+<p>These handlers are 'auth/authenticate' and 'auth/register', only internal applications may access these. The 'auth/authenticate' handles all authentication from an app. The app will have the same keys and secrets as the API and authenticate the user. </p>
+
+<p>The login process is as follows: </p>
+
+<ul>
+<li>User views the Connect page and decides which provider to use to login. </li>
+<li>The user goes through the entire process of authenticating with the provider. </li>
+<li>When the user gets the response with the access token for the user in that provider we call the 'auth/authenticate' method of the API. This method takes the access token and verifies that it's our app and that the token is valid by calling the API of the providers. </li>
+<li>The API then creates / updates the account and checks for a user. If no user is found the API will return a response with the user as false, telling the website to redirect the user over to the profile registration page. If the account is already linked to a user we send a response with the user and the access token for the current application to access the user with.</li>
+</ul>
+
+<p>And that's it we are authenticated. All requests made from this point will be made with the access token returned by the 'authenticate' response if a user was returned already.</p>
+
+<p>To register we do a simple post with the account id and user's details. The service does a few checks for availability and then creates the profile and returns a response with the access token for the application to use.</p>
+
+<h4>Not that hard but no-one gave me clear instructions so I thought I'd share my experience.</h4><hr><p style="font-size:14px;"> Posted on 2012/07/22 by <a href="/">Johann du Toit</a></p></div></div></div></div><div id="meta-block" class="linksbelow"><div class="container"><div class="row"><div style="padding:15px;padding-top:10px;" class="span8 offset2"><h3 style="margin:10px;">Recent Posts</h3><ul style="list-style-type: circle;"><li><a href="/2013/01/08/the-daily-reporting-programmer.html">The Daily Reporting Programmer</a></li><li><a href="/2013/01/07/starting-my-bachelor-of-science-in-informatics.html">Starting my Bachelor of Science in Informatics</a></li><li><a href="/2013/01/07/searching-in-a-radius-using-postgres.html">Searching in a Radius using Postgres</a></li><li><a href="/2012/11/08/ie8-finally-losing-relevance-to-consumers.html">IE8 Finally Losing Relevance to consumers</a></li><li><a href="/2012/10/27/introducing-identichip.html">Introducing IdentiChip</a></li><li><a href="/2012/07/22/slow-down-cowboy.html">Slow Down Cowboy</a></li><li><a href="/2012/07/22/oauth-in-a-service-oriented-architecture.html">OAuth in a Service-Oriented Architecture</a></li><li><a href="/2012/05/22/shotgun-programming.html">Shotgun Programming</a></li></ul><p style="margin-left:10px;margin-top:15px;"><a href="/archive.html"><View>all Posts</View></a></p></div></div></div></div></div><footer><div style="margin-top:0;" class="container"><div class="span8 offset2"><p>Copyright Johann du Toit 2012 - 2012 <a id="footer_subscribe_link" href="/atom.xml" style="margin-left:10px;margin-right:10px;">Subscribe to RSS</a><a id="footer_about_link" href="/">About</a></p></div></div></footer><script src="/js/prettify.min.js" type="text/javascript"></script><script type="text/javascript">window.prettyPrint && prettyPrint()
+</script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-13256670-7']);
+_gaq.push(['_setDomainName', 'johanndutoit.net']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script></body></html>
