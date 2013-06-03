@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Johann du Toit]]></title><description><![CDATA[description]]></description><link>http://www.johanndutoit.net</link><image><url>http://www.johanndutoit.net/img/logo.png</url><title>Johann du Toit</title><link>http://www.johanndutoit.net</link></image><generator>NodeJS RSS Module</generator><lastBuildDate>Mon, 03 Jun 2013 12:17:42 GMT</lastBuildDate><atom:link href="http://www.johanndutoit.net/atom.xml" rel="self" type="application/rss+xml"/><item><title><![CDATA[The crew of ships like Voyager will constist of Programmers and Engineers]]></title><description><![CDATA[<p>Captains Log - Star Date <strong>-309579.20506722486</strong> (That's <strong>June 3,  2013, Time: 14:09:48</strong>, check it !)</p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Johann du Toit]]></title><description><![CDATA[description]]></description><link>http://www.johanndutoit.net</link><image><url>http://www.johanndutoit.net/img/logo.png</url><title>Johann du Toit</title><link>http://www.johanndutoit.net</link></image><generator>NodeJS RSS Module</generator><lastBuildDate>Mon, 03 Jun 2013 12:21:22 GMT</lastBuildDate><atom:link href="http://www.johanndutoit.net/atom.xml" rel="self" type="application/rss+xml"/><item><title><![CDATA[The crew of ships like Voyager will constist of Programmers and Engineers]]></title><description><![CDATA[<p>Captains Log - Star Date <strong>-309579.20506722486</strong> (That's <strong>June 3,  2013, Time: 14:09:48</strong>, check it !)</p>
 
 <p><center>
 <img src="http://thetrektrek.files.wordpress.com/2012/06/tttvoyager.jpg" style="width:90%;" /></p>
@@ -66,7 +66,9 @@ ship.status.on('change', function(status_obj){
 
 </pre>
 
-<pre><code>The ship's senior crew would then able to access the main system and view all the programs running and stop / delete them based on their permissions. And what if the Security Officer want to restrict all crew to quarters but wants the security staff to be able to open all doors while the alert level is on red.
+<p>The ship's senior crew would then able to access the main system and view all the programs running and stop / delete them based on their permissions.</p>
+
+<pre><code> What if the Security Officer want to restrict all crew to quarters but wants the security staff to be able to open all doors while the alert level is on red.
 </code></pre>
 
 <pre class="prettyprint">
@@ -96,7 +98,7 @@ ship.status.on('change', function(status_obj){
 
 </pre>
 
-<pre><code>What if the bridge encounters a spacial anomily that forces the crew to shutdown life support on lower levels and divert that power to the first 3 levels and direct more power to the shields to provide better protection while they travel through the raditian for the next 3 days.
+<pre><code>What if the bridge encounters a spacial anomaly that forces the crew to shutdown life support on lower levels and divert that power to the first 3 levels and direct more power to the shields to provide better protection while they travel through the raditian for the next 3 days.
 </code></pre>
 
 <pre class="prettyprint">
