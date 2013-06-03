@@ -1,0 +1,207 @@
+<!DOCTYPE html><!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]--><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>The crew of ships like Voyager will constist of Programmers and Engineers | Johann du Toit</title><meta name="description" content="&lt;p&gt;Captains Log - Star Date &lt;strong&gt;-309579.20506722486&lt;/strong&gt; (That's &lt;strong&gt;June 3,  2013, Time: 14:09:48&lt;/strong&gt;, check it !)&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;img src=&quot;http://wall.alphacoders.com/big.php?i=248611&quot; style=&quot;width:90%;&quot; /&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Star Trek..."><meta itemprop="image" content="http://www.johann.co.za/img/johann.jpg"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><link rel="alternate" type="application/rss+xml" title="Atom Feed" href="http://feeds.feedburner.com/JohannduToit"><link rel="canonical" href="http://johanndutoit.net/"><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" media="all"><link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"><link href="/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" media="all"><link href="/css/style.css" rel="stylesheet" type="text/css" media="all"></head><body><div id="headerblock" class="container-fluid"><div class="container"><div class="row"><div class="span8 offset2"><div id="title-bar"><a id="header_about_link" style="float:right;margin-top:2px;" href="/">About</a><a id="blog-name" href="/"><h3>Johann du Toit</h3></a><span id="slogan-block" style="margin-left:5px;margin-top:5px;"><p>| My crazy adventures with Computers.</p></span></div><div style="margin-bottom:10px;" class="clearfix"></div></div></div></div></div><div id="mainpage"><div id="main-page-container" class="container"><div class="row"><div class="span8 offset2"><div style="margin:20px;"><p>Captains Log - Star Date <strong>-309579.20506722486</strong> (That's <strong>June 3,  2013, Time: 14:09:48</strong>, check it !)</p>
+
+<p><center>
+<img src="http://wall.alphacoders.com/big.php?i=248611" style="width:90%;" />
+</center></p>
+
+<p>Star Trek has always made me think. How do does the crew allow the ship to do dozens of unique actions with only their few buttons... </p>
+
+<pre><code>DISCLAIMER - this is my PERSONAL view on how we would build such a system. I'm not qualified in form of aerial engineering so don't be too harsh !
+</code></pre>
+
+<p>So I think I finally came up with a solution. </p>
+
+<p>The entire crew were proficient in programming and interacted with Voyager through programming subroutines for the ship to handle some kind of situation / perform some custom action or control the existing systems. </p>
+
+<p><center></p>
+
+<p><img src="http://thecomicking.net/wp-content/uploads/2011/11/voyscd.jpg" style="width:90%;" /></p>
+
+<p><a href="http://thecomicking.net/wp-content/uploads/2011/11/voyscd.jpg">http://thecomicking.net/wp-content/uploads/2011/11/voyscd.jpg</a></p>
+
+<p></center></p>
+
+<p>How do you reconfigure the shields to operate on a different frequency while only using 80% of power so the rest can be diverted to the medical bay ? Do we create numerous scenarios like these and compile a huge list that the crew would need to choose from ? No ! When your in deep space you need something that will do exactly what you want and not some pre-defined behavior that only does sort of what you want and get's a few people killed. My thinking is that each crew member of Voyager would need to have their field of expertise and a set of good programming skills. </p>
+
+<p>For these examples I took JavaScript as it's a easy to use language and can imagine these sub-systems writing in a language like JavaScript. And borrowing from Node as it would actually be a good fit for something like this !</p>
+
+<pre><code>Say the security officer wants to close all the bay doors and not allow anyone but senior crew members to access them
+</code></pre>
+
+<pre class="prettyprint">
+
+// This block of code
+var context = this;
+
+// Put the ship in Yellow Alert
+ship.status.change( ship.states.YELLOW );
+
+// Close all the doors
+ship.bays.forEach(function(bay_obj){
+
+    // Close the Door
+    bay_obj.doors.closeAll();
+
+});
+
+// Handle Authorize Requests
+ship.doors.on('open_request', function(personal_obj, door_obj, target_room){
+
+    // Done, 5 = Cargo Bay
+    return target_room.type == 5 && personal_obj.level > 10;
+
+});
+
+// Listen for ship states
+ship.status.on('change', function(status_obj){
+
+    // Remove the restrictions again
+    // and remove the program from the main computer
+    context.dispose();
+
+});
+
+</pre>
+
+<pre><code>The ship's senior crew would then able to access the main system and view all the programs running and stop / delete them based on their permissions. And what if the Security Officer want to restrict all crew to quarters but wants the security staff to be able to open all doors while the alert level is on red.
+</code></pre>
+
+<pre class="prettyprint">
+
+// This block of code
+var context = this;
+
+// Put the ship in Yellow Alert
+ship.status.change( ship.states.RED );
+
+// Handle Autherize Requests
+ship.doors.on('open_request', function(personal_obj, door_obj, target_room){
+
+    // Done, 5 = Cargo Bay, 6 = security team
+    return personal_obj.team == 6;
+
+});
+
+// Liten for ship states
+ship.status.on('change', function(status_obj){
+
+    // Remove the restrictions again
+    // and remove the program from the main computer
+    context.dispose();
+
+});
+
+</pre>
+
+<pre><code>What if the bridge encounters a spacial anomily that forces the crew to shutdown life support on lower levels and divert that power to the first 3 levels and direct more power to the shields to provide better protection while they travel through the raditian for the next 3 days.
+</code></pre>
+
+<pre class="prettyprint">
+
+// This block of code
+var context = this;
+
+// Put the ship in Yellow Alert
+ship.status.change( ship.states.BLUE );
+
+// Floors to direct power from
+var floors = [];
+
+// Handle Autherize Requests
+ship.floors.forEach(function(floor_obj){
+
+    // If lower level
+    if(floor_obj.level > 5) {
+
+        // Shutdown Life support
+        floor_obj.lifesupport.shutdown();
+
+        // Shutdown shields on that level
+        floor_obj.level.shutdown();
+
+        // Add as a valid floor
+        floors.push(floor_obj);
+
+    }
+
+});
+
+// Direct power form those levels to shields
+ship.shields.direct_power_from(floors);
+
+// Stop Crew from entering door that lead to rooms that have had their life support disabled.
+ship.floors.on('open_request', function(personal_obj, door_obj, target_room){
+
+    // Is life support enabled in this room ?
+    return target_room.lifesupport.enabled == true;
+
+});
+
+// Liten for ship states
+ship.status.on('change', function(status_obj){
+
+    // Remove the restrictions again
+    // and remove the program from the main computer
+    context.dispose();
+
+});
+
+</pre>
+
+<p>The ship would operate in various levels. Where the the ship would mantain core system with a strict set of rules that would keep the crew alive, no parts exploding and act as safety net if the crew try to go beyond what the ship is capable off. To sum it up the architecture of Voyager would like this: With the Main Computer handling the core functions while the crew are free to replace / or temprary run new code to exibit new actions. This makes you think of a ship app store much like Android. Where their would be a database with prebuilt script's that contain all the code which the ship would then install. The ship would then be operating as a operating system like Android does. So we would be coding against a large set of API's. </p>
+
+<p>The ship would supply a constant stream of data and our code would be responsible to parse that code. Our code could then act on these data events or we could change attributes of these systems. </p>
+
+<pre><code>Let's think about having to alter data before we sent it to our Internal Neural Network for processing from new a star that we have encoutered for the first time ?
+</code></pre>
+
+<pre class="prettyprint">
+
+interem_stream = new Stream();
+
+ship.sensors.long_range.pipe(interem_stream);
+interem_stream.pipe(ship.processing.senors.long_range);
+
+// Change what we receive
+interem_stream.on('data', function(data){
+
+    // Change all & to 1.2 ?
+    data = data.replace('&', '1.2');
+
+    // Write on
+    this.write(data);
+
+});
+
+</pre>
+
+<p>So the ship would be flying itself and keeping it's system running with the crew only acting as coordinators and programmers to change functions or start certain functions for the ship to perform. The more I think about this the more it makes sense. Why build a ship with predefined functions when you can build a ship that you can program ? The first general purpose galactic ship ! Of course this requires actually inputting this logic. </p>
+
+<p>So if you are in the heat of battle it's going to be another case for one of the crew to type sensible code ! So that's where the long list of predefined code blocks would help the crew defeat the enemy only requiring code if they need to do something special. </p>
+
+<p>That was my though experiment into a Start Trek ship and how we could achieve the same extensibility in a ship. What do you think ?</p>
+
+<p>And to be honest the show would be very boring if it was all just a bunch of programmers trying to outwit each other !</p><hr><p style="font-size:14px;"> Posted on 2013/06/03 by <a href="/">Johann du Toit</a></p><div style="margin-bottom:10px;" class="clearfix"></div><div id="disqus_thread"></div><script type="text/javascript">var disqus_shortname = 'johanndutoit';
+(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div></div></div></div><div id="meta-block" class="linksbelow"><div class="container"><div class="row"><div style="padding:15px;padding-top:10px;" class="span8 offset2"><h3 style="margin:10px;">Recent Posts</h3><ul style="list-style-type: circle;"><li><a href="/2013/06/03/the-crew-of-ships-like-voyager-will-constist-of-programmers-and-engineers.html">The crew of ships like Voyager will constist of Programmers and Engineers</a></li><li><a href="/2013/04/13/mongodb-import-error-utf8-unexpected-error.html">MongoDB Import Error UTF8 Unexpected Error</a></li><li><a href="/2013/04/13/hosting-my-blog-on-github.html">Hosting my Blog on Github</a></li><li><a href="/2013/01/08/the-daily-reporting-programmer.html">The Daily Reporting Programmer</a></li><li><a href="/2013/01/07/starting-my-bachelor-of-science-in-informatics.html">Starting my Bachelor of Science in Informatics</a></li><li><a href="/2013/01/07/searching-in-a-radius-using-postgres.html">Searching in a Radius using Postgres</a></li><li><a href="/2012/11/08/ie8-finally-losing-relevance-to-consumers.html">IE8 Finally Losing Relevance to consumers</a></li><li><a href="/2012/10/27/introducing-identichip.html">Introducing IdentiChip</a></li></ul><p style="margin-left:10px;margin-top:15px;"><a href="/archive.html"><View>all Posts</View></a></p></div></div></div></div></div><footer><div style="margin-top:0;" class="container"><div class="span8 offset2"><p>Copyright Johann du Toit 2012 - 2012 <a id="footer_subscribe_link" href="/atom.xml" style="margin-left:10px;margin-right:10px;">Subscribe to RSS</a><a id="footer_about_link" href="/">About</a></p></div></div></footer><script src="/js/prettify.min.js" type="text/javascript"></script><script type="text/javascript">window.prettyPrint && prettyPrint()
+</script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-13256670-7']);
+_gaq.push(['_setDomainName', 'johanndutoit.net']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script></body></html>
